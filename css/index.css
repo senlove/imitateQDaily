@@ -15,6 +15,7 @@
 .head_left{
 	width: 420px;
 	height: 80px;
+	background-color: #ff0000;
 }
 
 .head_left_logo{
@@ -49,7 +50,8 @@
 }
 
 .head_left ul{
-	
+	float: right;
+	margin-right: 25px;
 }
 
 .head_left ul li{
@@ -61,3 +63,9 @@
 	color: #ffffff;
 }
 
+.head_left ul li:first-child a span{
+	color: #ff00ff;
+	background: url("imgs/head_logo_curiosity_hover.png");
+	/*background-image: url("imgs/head_logo_curiosity_hover.png");*/
+	/*background: url("imgs/head_logo_curiosity_hover.png") no-repeat;  */
+}
