@@ -6,6 +6,36 @@
 	background-color: #000;
 }
 
-90 * 120
+.head_left_logo{
+	width: 90px;
+	height: 120px;
+	background-color: #000;
+	position: absolute;
+	z-index: 10;
+	
+	display: table;
+}
+
+.head_left_logo_icon_txt_container{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+
+.head_left_logo_icon{
+	display: block;
+	margin: 0 auto;
+	width: 30px;
+	height: 65px;
+}
+
+.head_left_logo_txt{
+	display: block;
+	margin: 0 auto;
+	margin-top: 2px;
+	width: 45px;
+	height: 30px;
+}
+
 
 
