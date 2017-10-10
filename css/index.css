@@ -6,13 +6,24 @@
 	background-color: #000;
 }
 
+.head_container{
+	width: 1300px;
+	height: 80px;
+	margin: 0 auto;
+}
+
+.head_left{
+	width: 420px;
+	height: 80px;
+}
+
 .head_left_logo{
 	width: 90px;
 	height: 120px;
 	background-color: #000;
 	position: absolute;
 	z-index: 10;
-	
+
 	display: table;
 }
 
@@ -37,5 +48,16 @@
 	height: 30px;
 }
 
+.head_left ul{
+	
+}
 
+.head_left ul li{
+	float: left;
+	line-height: 80px;
+}
+
+.head_left ul li a{
+	color: #ffffff;
+}
 
