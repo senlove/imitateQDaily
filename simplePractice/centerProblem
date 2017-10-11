@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>centerPrablem</title>
+	<style type="text/css">
+		
+		.out_div{
+			width: 200px;
+			height: 200px;
+			position: relative;
+			background-color: #241442;
+		}
+
+		.out_div img{
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -10px 0 0 -10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="out_div">
+		<img src="../imgs/head_logo_curiosity.png">
+	</div>
+
+</body>
+</html>

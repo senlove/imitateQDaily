@@ -15,7 +15,7 @@
 .head_left{
 	width: 420px;
 	height: 80px;
-	background-color: #ff0000;
+	border-right: 2px solid #4d4d4d;
 }
 
 .head_left_logo{
@@ -63,9 +63,22 @@
 	color: #ffffff;
 }
 
-.head_left ul li:first-child a span{
-	color: #ff00ff;
-	background: url("imgs/head_logo_curiosity_hover.png");
-	/*background-image: url("imgs/head_logo_curiosity_hover.png");*/
-	/*background: url("imgs/head_logo_curiosity_hover.png") no-repeat;  */
+.head_left ul li img{
+	margin-right: 10px;
+	vertical-align: middle;
 }
+
+.head_left ul li:first-child{
+	margin-right: 45px;
+}
+
+
+.head_left ul li:last-child a{
+	display: block;
+	color: #0f0;
+	background: url("imgs/head_logo_curiosity.png") no-repeat scroll 0px 0px;
+	/*padding: 10px;*/
+	
+}
+
+
