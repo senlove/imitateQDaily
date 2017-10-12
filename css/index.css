@@ -8,12 +8,16 @@
 	
 }
 
+.head_font_hover:hover{
+	color: #ffcb1f;
+}
+
 
 .head_container{
 	width: 1300px;
 	height: 80px;
 	margin: 0 auto;
-	background-color: #0ff;
+	/*background-color: #0ff;*/
 }
 
 .head_container a{
@@ -33,7 +37,6 @@
 	background-color: #000;
 	position: absolute;
 	z-index: 10;
-
 	display: table;
 }
 
@@ -82,9 +85,17 @@
 	padding-left: 30px;
 }
 
+.head_left ul li:first-child a:hover{
+	background: url("../imgs/head_logo_curiosity_hover.png") no-repeat scroll left center;
+}
+
 .head_left ul li:last-child a{ 
 	padding-left: 30px;
 	background: url("../imgs/head_logo_menu.png") no-repeat scroll left center;
+}
+
+.head_left ul li:last-child a:hover{ 
+	background: url("../imgs/head_logo_memu_hover.png") no-repeat scroll left center;
 }
 
 .head_center{
@@ -98,14 +109,18 @@
 
 }
 
+.head_center ul li{
+	float: left;
+	margin-left: 25px;
+}
+
 .head_center ul li a{
 	color: #808080;
 	font-size: 14px;
 }
 
-.head_center ul li {
-	float: left;
-	margin-left: 25px;
+.head_center ul li a:hover{
+	color: #ffcb1f;
 }
 
 .head_center_all_category{
@@ -154,6 +169,13 @@
 	text-align: center;
 	margin-left: 15px;
 }
+
+/*.head_right_about li:first-child a{
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: url("../imgs/head_right_weibo.png") no-repeat scroll 0px 0px;
+}*/
 
 .head_right_about li img{
 	vertical-align: middle;
