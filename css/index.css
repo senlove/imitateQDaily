@@ -1,10 +1,13 @@
 @import url("common.css");
 
+
 .head{
 	height: 80px;
 	width: 100%;
 	background-color: #000;
+	
 }
+
 
 .head_container{
 	width: 1300px;
@@ -12,10 +15,15 @@
 	margin: 0 auto;
 }
 
+.head_container a{
+	color: #fff;
+}
+
 .head_left{
 	width: 420px;
 	height: 80px;
-	border-right: 2px solid #4d4d4d;
+	border-right: 1px solid #4d4d4d;
+	float: left;
 }
 
 .head_left_logo{
@@ -70,12 +78,44 @@
 .head_left ul li:first-child a{
 	margin-right: 45px;
 	background: url("../imgs/head_logo_curiosity.png") no-repeat scroll left center;
-	padding-left: 25px;
+	padding-left: 30px;
 }
 
 .head_left ul li:last-child a{ 
-	padding-left: 25px;
+	padding-left: 30px;
 	background: url("../imgs/head_logo_menu.png") no-repeat scroll left center;
 }
 
+.head_center{
+	float: left;
+	width: 625px;
+	height: 80px;
+	border-right: 1px solid #4d4d4d;
+	position: relative;
+}
 
+.head_center ul li{
+	line-height: 80px;
+	margin-left: 25px;
+	float: left;
+
+}
+
+.head_center ul li a{
+	color: #808080;
+	font-size: 14px;
+}
+
+.head_center_all_category{
+	position: absolute;
+	background-color: #000;
+	padding: 0 10px;
+	height: 80px;
+	right: 0px;
+}	
+
+.head_center_all_category a{
+	line-height: 80px;
+	background: url("../imgs/head_center_all_category.png") no-repeat scroll right 3px;
+	padding-right: 15px;
+}
