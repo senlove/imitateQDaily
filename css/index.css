@@ -188,6 +188,13 @@
 	background-color: #000;
 }
 
+
+.head_category_list_left_line{
+	border-top:1px solid #4d4d4d;
+	height: 1px;
+	width: 434px;
+}
+
 .head_category_list{
 	/*background-color: #f0f;*/
 	width: 900px;
