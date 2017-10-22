@@ -225,5 +225,47 @@
 
 }
 
+.main-container{
+	width: 1010px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
 
+.swiper-container{
+	width: 760px;
+	height: 450px;
+}
+
+
+.swiper-slide-item-container{
+	position: relative;
+
+}
+
+.swiper-button-prev{
+	background-image: url("../imgs/swiper_pre.png");
+}
+
+.swiper-button-next{
+	background-image: url("../imgs/swiper_next.png");
+}
+
+.swiper-slide-item-container img{
+	width: 760px;
+	height: 450px;
+}
+.swiper-slide-item-container-category{
+	position: absolute;
+	left: 20px;
+	top: 350px;
+	color: #ffcb1f;
+}
+
+.swiper-slide-item-container-title{
+	position: absolute;
+	left: 20px;
+	top: 380px;
+	color: #fff;
+}
 
