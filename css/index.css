@@ -1,6 +1,10 @@
 @import url("common.css");
 
 
+body{
+	background-color: #eee;
+}
+
 .head{
 	height: 80px;
 	width: 100%;
@@ -226,7 +230,7 @@
 }
 
 .main-container{
-	width: 1010px;
+	width: 1020px;
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
@@ -235,6 +239,7 @@
 .swiper-container{
 	width: 760px;
 	height: 450px;
+	float: left;
 }
 
 
@@ -260,6 +265,9 @@
 	left: 20px;
 	top: 350px;
 	color: #ffcb1f;
+	font-size: 14px;
+	padding: 0 5px;
+	background-color: #000;
 }
 
 .swiper-slide-item-container-title{
@@ -267,5 +275,59 @@
 	left: 20px;
 	top: 380px;
 	color: #fff;
+	font-size: 24px;
+	padding: 0 5px;
+	background-color: #000;
 }
 
+.logo-skill-container{
+	float: left;
+	margin-left: 15px;
+	width: 245px;
+	height: 450px;
+}
+
+.skill-chart-container{
+	width: 245px;
+	height: 215px;
+	position: relative;
+}
+
+.skill-chart{
+	position: absolute;
+	width: 245px;
+	margin-top: -210px;
+	text-align: center;
+}
+
+.skill-head-portrait{
+	position: absolute;
+	margin-top: -140px;
+	width: 245px;
+	text-align: center;
+}
+
+.logo-button{
+	width: 245px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 16px;
+	background-color: #ffcb1f;
+}
+
+.logo-prompt{
+	width: 245px;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	font-size: 16px;
+	color: #808080;
+	background-color: #fff;
+}
+
+.download-app-prompt img{
+	height: 155px;
+	margin-top: 10px;
+	width: 245px;
+}
