@@ -377,3 +377,35 @@ body{
 .item-normal-praise span:first-child{
 	margin-right: 20px;
 }
+
+
+.item-max, .item-max img{
+	width: 670px;
+	height: 320px;
+}
+
+.item-max{
+	position: relative;
+}
+
+.item-max-bottom{
+	width: 650px;
+	height: 70px;
+	background-color: #000;
+	opacity: 0.5;
+	padding-left: 20px;
+	padding-top: 10px;	
+	position: absolute;
+	bottom: -80px;
+}
+
+.item-max-bottom p:first-child{
+	color: #fff;
+	font-size: 18px;
+}
+
+.item-max-bottom p:last-child{
+	color: #eee;
+	margin-top: 5px;
+	font-size: 16px;
+}
