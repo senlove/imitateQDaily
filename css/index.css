@@ -331,3 +331,49 @@ body{
 	margin-top: 10px;
 	width: 245px;
 }
+
+.item-normal{
+	width: 245px;
+	height: 280px;
+	background-color: #fff;
+	position: relative;
+	clear: both;
+}
+
+.item-normal img{
+	width: 245px;
+	height: 190px;
+}
+
+
+.item-normal-txt{
+	margin-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #0f1419;
+}
+
+
+
+.item-normal-category{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	font-size: 14px;
+	color: #fff;
+}
+
+.item-time-comment-praise{
+	margin-top: 10px;
+	color: #666;
+}
+
+
+.item-normal-praise{
+	float: right;
+	color: #d1d1d1;
+}
+
+.item-normal-praise span:first-child{
+	margin-right: 20px;
+}
