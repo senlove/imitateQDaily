@@ -419,3 +419,50 @@ body{
 .item-max-small{
 	clear: both;
 }
+
+
+.item-large{
+	width: 500px;
+	height: 280px;
+	background-color: #fff;
+	position: relative;
+	clear: both;
+}
+
+.item-large img{
+	width: 500px;
+	height: 190px;
+}
+
+
+.item-large-txt{
+	margin-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	color: #0f1419;
+}
+
+
+
+.item-large-category{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	font-size: 14px;
+	color: #fff;
+}
+
+.item-large-time-comment-praise{
+	margin-top: 10px;
+	color: #666;
+}
+
+
+.item-large-praise{
+	float: right;
+	color: #d1d1d1;
+}
+
+.item-large-praise span:first-child{
+	margin-right: 20px;
+}
