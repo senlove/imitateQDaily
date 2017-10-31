@@ -386,6 +386,7 @@ body{
 
 .item-max{
 	position: relative;
+	/*clear: both;*/
 }
 
 .item-max-bottom{
@@ -408,4 +409,13 @@ body{
 	color: #eee;
 	margin-top: 5px;
 	font-size: 16px;
+}
+
+.item-max-small, .item-max-small img{
+	width: 330px;
+	height: 320px;
+}
+
+.item-max-small{
+	clear: both;
 }
