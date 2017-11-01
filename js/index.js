@@ -62,74 +62,50 @@ $(function () {
 	var $itemContainer = $('.item-container');
 	var $ulTag = $('<ul></ul>');
 	$itemContainer.append($ulTag);
+	var htmlTemp = '';
+	htmlTemp += '<ul>';
 
 	for(var i=0; i<arrs.length; i++){
-
 		var itemData = arrs[i];
-
-		var $liTag = $('<li></li>');
-
-		var $divTag = $('<div></div>');
-
-		var $aTag = $('<a></a>');
-		$aTag.attr('href', '');
-		var $imgTag = $('<img></img>');
-
-		var $divTagCategory = $('<div></div>');
-		var $spanTagCategory = $('<span></span>');
-
-		var $divTagTxtContainer = $('<div></div>');
-		var $spanTagTxt = $('<span></span>');
-
-		var $divTagTimePraiseContainer = $('<div></div>');
-		var $spanTagTime = $('<span></span>');
-
-		var $divTagPraise = $('<div></div>');
-		var $spanTagComment = $('<span></span>');
-		var $spanTagPraise = $('<span></span>');
-
-		//这样弄很难维护耶，写也很恶心。。
-
-		$divTag.attr('class', 'item-normal');
-		$divTag.append($aTag);
-
-
-		$spanTagCategory.text('商业');
-		$divTagCategory.attr('class', 'item-normal-category');
-		$divTagCategory.append($spanTagCategory);
-		$aTag.append($divTagCategory);
-
-		$imgTag.attr('src', itemData.imgSrc);
-
-		$aTag.append($imgTag);
-
-		$spanTagTxt.text(itemData.desc);
-		$divTagTxtContainer.attr('class', 'item-normal-txt');
-		$divTagTxtContainer.append($spanTagTxt);
-
-		$divTagTimePraiseContainer.attr('class', 'item-time-comment-praise');
-		$spanTagTime.text('刚刚');
-		$divTagTimePraiseContainer.append($spanTagTime);
-
-		$divTagPraise.attr('class', 'item-normal-praise');
-		$spanTagComment.text(itemData.commentCount);
-		$spanTagPraise.text(itemData.praiseCount);
-		$divTagPraise.append($spanTagComment);
-		$divTagPraise.append($spanTagPraise);
-
-		$divTagTimePraiseContainer.append($divTagPraise);
-
-		$divTagTxtContainer.append($divTagTimePraiseContainer);
-
-		$aTag.append($divTagTxtContainer);
-
-		$liTag.append($divTag);
-		$ulTag.append($liTag);
-
-	
-
+		htmlTemp += '<li><div class="item-normal"><a href="';
+		if (typeof (arrs.link) != 'undefined') {
+			htmlTemp += arrs.link;
+		} else {
+			htmlTemp += 'javascript:;';
+		}
+		htmlTemp += '"><div class="item-normal-category"><span>';
+		if (typeof (arrs.tagCategory) != 'undefined') {
+			htmlTemp += arrs.tagCategory;
+		} else {
+			htmlTemp += '商业';
+		}
+		htmlTemp += '</span></div><img src="';
+		if (itemData.imgSrc != '') {
+			htmlTemp += itemData.imgSrc;
+		} else {
+			// TODO default img
+			htmlTemp += '';
+		}
+		htmlTemp += '"><div class="item-normal-txt"><span>';
+		if (itemData.desc != '') {
+			htmlTemp += itemData.desc;
+		} else {
+			// TODO default desc
+			htmlTemp += '';
+		}
+		htmlTemp += '</span><div class="item-time-comment-praise"><span>';
+		if (typeof (arrs.tagTime) != 'undefined') {
+			htmlTemp += arrs.tagTime;
+		} else {
+			htmlTemp += '刚刚';
+		}
+		htmlTemp += '</span><div class="item-normal-praise"><span>';
+		htmlTemp += itemData.commentCount + '</span><span>';
+		htmlTemp += itemData.praiseCount + '</span></div></div></div></a></div></li>';
 	}
-
+	htmlTemp += '</ul>';
+	// jquery
+	$itemContainer.html(htmlTemp);
 });
 
 
