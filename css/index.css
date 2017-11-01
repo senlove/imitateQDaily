@@ -338,18 +338,25 @@ body{
 	margin-top: 10px;
 }
 
+
+.item-container ul li{
+	float: left;
+	margin-top: 10px;
+}
+
+.item-container ul li:not(:nth-child(4n)){
+	margin-right: 10px;
+}
+
 .item-normal{
 	width: 245px;
 	height: 280px;
 	background-color: #fff;
 	position: relative;
 	/*clear: both;*/
-	float: left;
+	/*float: left;*/
 }
 
-.item-normal:not(:first-child){
-	margin-left: 10px;
-}
 
 .item-normal img{
 	width: 245px;

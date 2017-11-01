@@ -60,15 +60,19 @@ $(function () {
 
 
 	var $itemContainer = $('.item-container');
-
+	var $ulTag = $('<ul></ul>');
+	$itemContainer.append($ulTag);
 
 	for(var i=0; i<arrs.length; i++){
 
 		var itemData = arrs[i];
 
+		var $liTag = $('<li></li>');
+
 		var $divTag = $('<div></div>');
 
 		var $aTag = $('<a></a>');
+		$aTag.attr('href', '');
 		var $imgTag = $('<img></img>');
 
 		var $divTagCategory = $('<div></div>');
@@ -92,12 +96,12 @@ $(function () {
 
 		$spanTagCategory.text('商业');
 		$divTagCategory.attr('class', 'item-normal-category');
-		$divTagCategory.append('$spanTagCategory');
+		$divTagCategory.append($spanTagCategory);
 		$aTag.append($divTagCategory);
 
 		$imgTag.attr('src', itemData.imgSrc);
-		$aTag.append($imgTag);
 
+		$aTag.append($imgTag);
 
 		$spanTagTxt.text(itemData.desc);
 		$divTagTxtContainer.attr('class', 'item-normal-txt');
@@ -115,18 +119,16 @@ $(function () {
 
 		$divTagTimePraiseContainer.append($divTagPraise);
 
-		$divTagCategory.append($divTagTimePraiseContainer);
+		$divTagTxtContainer.append($divTagTimePraiseContainer);
 
-		$aTag.append($divTagCategory);
+		$aTag.append($divTagTxtContainer);
 
+		$liTag.append($divTag);
+		$ulTag.append($liTag);
 
-		$itemContainer.append($divTag);
+	
 
 	}
-
-
-
-
 
 });
 
