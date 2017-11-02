@@ -70,7 +70,15 @@ $(function () {
 		itemData.commentCount = 10;
 		itemData.praiseCount = 15;	
 
-		if(i == 6) {
+		if(i === 5) {
+			itemData.type = 200;
+		}
+
+		if(7 === i){
+			itemData.type = 200;
+		}
+
+		if(15 === i) {
 			itemData.type = 200;
 		}
 
@@ -87,30 +95,38 @@ $(function () {
 	// var ulTag = '<ul></ul>';
 	var noMarginRightTag =0;
 
-
+	var lineCount = 0;	
 	for(var i=0; i<arrs.length; i++){
 		var itemData = arrs[i];
+
 
 		var container = "";
 		switch(itemData.type){
 			case 100:
-			container = createItem(itemData, 0);
+			lineCount ++;
+			container = createItem(itemData, 100, lineCount);
 			break;
 			case 200:
-			container = createItem(itemData, 1);
+			lineCount = lineCount + 2;
+			container = createItem(itemData, 200, lineCount);
 			break;
 			case 300:
 			break;
 		}
 		var liTag = '<li>'+container+'</li>';
 		htmlTemp += liTag;
+
+		if(4 === lineCount){
+			lineCount = 0;
+		} 
+
 	}
 	htmlTemp += '</ul>';
 	// jquery
 	$itemContainer.html(htmlTemp);
 });
 
-function createItem(itemData, type){
+function createItem(itemData, type, lineCount){
 	var commentStr = '<span>'+itemData.commentCount+'</span>';
 	var praiseStr = '<span>'+itemData.praiseCount+'</span>';
 	//这里的class还是强依赖了，修改了css文件，这里也得跟着修改
@@ -125,15 +141,25 @@ function createItem(itemData, type){
 
 	var categoryStr = '<span>商业</span>';
 
-	var divCategory = '';
+	var divCategory = divCategory = '<div class="item-normal-category">'+categoryStr+'</div>';
 
-	if(1 === type){
-		divCategory = '<div class="item-large-category">'+categoryStr+'</div>';
-	} else{
-		divCategory = '<div class="item-normal-category">'+categoryStr+'</div>';
-	}
 	var aTag = '<a href="">'+divCategory+img+divTxt+'</a>';
-	return '<div class="item-normal">'+aTag+'</div>';
+
+	if(200 === type){
+
+		if(4 === lineCount){
+			return '<div class="item-large">'+aTag+'</div>';					
+		}
+		return '<div class="item-large item-margin-right">'+aTag+'</div>';
+	} else{
+
+		if(4 === lineCount) {
+			return '<div class="item-normal">'+aTag+'</div>';
+		}
+		return '<div class="item-normal item-margin-right">'+aTag+'</div>';
+	}
+	
+
 }
 
 

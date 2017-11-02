@@ -344,7 +344,7 @@ body{
 	margin-top: 10px;
 }
 
-.item-container ul li:not(:nth-child(4n)){
+.item-margin-right{
 	margin-right: 10px;
 }
 
