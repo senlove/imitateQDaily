@@ -45,15 +45,42 @@ $(function () {
 					"http://img.qdaily.com/article/article_show/20171030225326muNfc0HEQsnJeDb6.jpg?imageMogr2/auto-orient/thumbnail/!245x185r/gravity/Center/crop/245x185/quality/85/format/webp/ignore-error/1"];
 	
 
-	var arrs = new Array();
-	for(var i=0; i<6; i++){
 
-		var itemData = new Object();
-		itemData.imgSrc = imgArrays[i];
-		itemData.desc = descArrays[i];
+	function ItemData(){
+
+	}
+	ItemData.prototype = {
+
+		imgSrc:"",
+		desc:"",
+		publishTime:0,
+		commentCount:0,
+		praiseCount:0,
+		type:100 //100 200 300
+	}
+
+
+	var arrs = new Array();
+	for(var i=0; i<20; i++){
+
+		var itemData = new ItemData();
+		itemData.imgSrc = imgArrays[rnd(0,6)];
+		itemData.desc = descArrays[rnd(0,6)];
 		itemData.publishTime = 1509441932132;//毫秒做单位
 		itemData.commentCount = 10;
 		itemData.praiseCount = 15;	
+
+		if(i === 5) {
+			itemData.type = 200;
+		}
+
+		if(7 === i){
+			itemData.type = 200;
+		}
+
+		if(15 === i) {
+			itemData.type = 200;
+		}
 
 		arrs.push(itemData);
 	}
@@ -65,49 +92,84 @@ $(function () {
 	var htmlTemp = '';
 	htmlTemp += '<ul>';
 
+	// var ulTag = '<ul></ul>';
+	var noMarginRightTag =0;
+
+	var lineCount = 0;	
 	for(var i=0; i<arrs.length; i++){
 		var itemData = arrs[i];
-		htmlTemp += '<li><div class="item-normal"><a href="';
-		if (typeof (arrs.link) != 'undefined') {
-			htmlTemp += arrs.link;
-		} else {
-			htmlTemp += 'javascript:;';
+
+
+		var container = "";
+		switch(itemData.type){
+			case 100:
+			lineCount ++;
+			container = createItem(itemData, 100, lineCount);
+			break;
+			case 200:
+			lineCount = lineCount + 2;
+			container = createItem(itemData, 200, lineCount);
+			break;
+			case 300:
+			break;
 		}
-		htmlTemp += '"><div class="item-normal-category"><span>';
-		if (typeof (arrs.tagCategory) != 'undefined') {
-			htmlTemp += arrs.tagCategory;
-		} else {
-			htmlTemp += '商业';
-		}
-		htmlTemp += '</span></div><img src="';
-		if (itemData.imgSrc != '') {
-			htmlTemp += itemData.imgSrc;
-		} else {
-			// TODO default img
-			htmlTemp += '';
-		}
-		htmlTemp += '"><div class="item-normal-txt"><span>';
-		if (itemData.desc != '') {
-			htmlTemp += itemData.desc;
-		} else {
-			// TODO default desc
-			htmlTemp += '';
-		}
-		htmlTemp += '</span><div class="item-time-comment-praise"><span>';
-		if (typeof (arrs.tagTime) != 'undefined') {
-			htmlTemp += arrs.tagTime;
-		} else {
-			htmlTemp += '刚刚';
-		}
-		htmlTemp += '</span><div class="item-normal-praise"><span>';
-		htmlTemp += itemData.commentCount + '</span><span>';
-		htmlTemp += itemData.praiseCount + '</span></div></div></div></a></div></li>';
+		var liTag = '<li>'+container+'</li>';
+		htmlTemp += liTag;
+
+		if(4 === lineCount){
+			lineCount = 0;
+		} 
+
 	}
 	htmlTemp += '</ul>';
 	// jquery
 	$itemContainer.html(htmlTemp);
 });
 
+function createItem(itemData, type, lineCount){
+	var commentStr = '<span>'+itemData.commentCount+'</span>';
+	var praiseStr = '<span>'+itemData.praiseCount+'</span>';
+	//这里的class还是强依赖了，修改了css文件，这里也得跟着修改
+	var divCommentPraise = '<div class="item-normal-praise">' + commentStr +　praiseStr+'</div>';
 
+
+
+	var timeStr = '<span>刚刚</span>';
+	var divTimeCommentPraise = '';
+	if(200 === type){
+		divTimeCommentPraise = '<div class="item-time-comment-praise item-large-time-comment-praise">'+ timeStr + divCommentPraise+'</div>';
+	} else{
+		divTimeCommentPraise = '<div class="item-time-comment-praise">'+ timeStr + divCommentPraise+'</div>';
+	}
+
+	var descStr = '<span>'+itemData.desc+'</span>';
+	// var divTxt = '<div class="item-normal-txt">'+descStr+divTimeCommentPraise+'</div>';
+	var divTxt = '<div class="item-normal-txt">'+descStr+'</div>';
+
+	var img = '<img src="'+itemData.imgSrc+'">';
+
+	var categoryStr = '<span>商业</span>';
+	var divCategory = divCategory = '<div class="item-normal-category">'+categoryStr+'</div>';
+
+	var aTag = '<a href="">'+divCategory+img+divTxt+divTimeCommentPraise+'</a>';
+
+	if(200 === type){
+
+
+
+		if(4 === lineCount){
+			return '<div class="tem-normal item-large">'+aTag+'</div>';					
+		}
+		return '<div class="item-normal item-large item-margin-right">'+aTag+'</div>';
+	} else{
+
+		if(4 === lineCount) {
+			return '<div class="item-normal">'+aTag+'</div>';
+		}
+		return '<div class="item-normal item-margin-right">'+aTag+'</div>';
+	}
+	
+
+}
 
 
