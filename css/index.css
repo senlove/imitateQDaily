@@ -465,3 +465,23 @@ body{
 	clear: both;
 }
 
+.loading{
+	clear: both;
+	display: none;
+	/*64 48 32*/
+	width: 144px;
+	margin: 0px auto;
+	background-color: #aedadf;
+	padding: 20px 0;
+	overflow: hidden;
+}
+
+.loading li{
+	float: left;
+	line-height: 64px;
+	height: 64px;
+}
+
+.loading li img{
+	vertical-align: middle;
+}
