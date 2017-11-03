@@ -230,14 +230,14 @@ body{
 }
 
 .main-container{
-	width: 1020px;
+	width: 1010px;
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 }
 
 .swiper-container{
-	width: 760px;
+	width: 755px;
 	height: 450px;
 	float: left;
 }
@@ -257,7 +257,7 @@ body{
 }
 
 .swiper-slide-item-container img{
-	width: 760px;
+	width: 755px;
 	height: 450px;
 }
 .swiper-slide-item-container-category{
@@ -282,7 +282,7 @@ body{
 
 .logo-skill-container{
 	float: left;
-	margin-left: 15px;
+	margin-left: 10px;
 	width: 245px;
 	height: 450px;
 }
@@ -334,7 +334,7 @@ body{
 
 
 .item-container{
-	width: 1020px;
+	/*width: 1010px;*/
 	margin-top: 10px;
 }
 
@@ -382,8 +382,13 @@ body{
 }
 
 .item-time-comment-praise{
-	margin-top: 10px;
+	width: 225px;
 	color: #666;
+	bottom: 0px;
+	position: absolute;
+	margin-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 
@@ -394,7 +399,29 @@ body{
 
 .item-normal-praise span:first-child{
 	margin-right: 20px;
+	background: url("../imgs/comment.png") no-repeat scroll left center;
+	padding-left: 25px;
+
 }
+
+.item-normal-praise span:last-child{
+	background: url("../imgs/praise.png") no-repeat scroll left center;
+	padding-left: 25px;	
+}
+
+
+.item-large{
+	width: 500px;
+}
+
+.item-large img{
+	width: 500px;
+}
+
+.item-large-time-comment-praise{
+	width: 480px;
+}
+
 
 
 .item-max, .item-max img{
@@ -438,49 +465,3 @@ body{
 	clear: both;
 }
 
-
-.item-large{
-	width: 500px;
-	height: 280px;
-	background-color: #fff;
-	position: relative;
-	clear: both;
-}
-
-.item-large img{
-	width: 500px;
-	height: 190px;
-}
-
-
-.item-large-txt{
-	margin-top: 10px;
-	padding-left: 10px;
-	padding-right: 10px;
-	color: #0f1419;
-}
-
-
-
-.item-large-category{
-	position: absolute;
-	left: 10px;
-	top: 10px;
-	font-size: 14px;
-	color: #fff;
-}
-
-.item-large-time-comment-praise{
-	margin-top: 10px;
-	color: #666;
-}
-
-
-.item-large-praise{
-	float: right;
-	color: #d1d1d1;
-}
-
-.item-large-praise span:first-child{
-	margin-right: 20px;
-}
