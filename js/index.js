@@ -27,6 +27,18 @@ $(function () {
 		return false;
 	});
 
+	loadItemData();
+
+	scrollBottomListener();
+
+
+
+});
+
+
+
+function loadItemData(){
+
 	var arrayLength = 6;
 	var descArrays = [
 						"两大浏览器将停止自动播放视频，这对广告行业有什么影响？",
@@ -124,7 +136,9 @@ $(function () {
 	htmlTemp += '</ul>';
 	// jquery
 	$itemContainer.html(htmlTemp);
-});
+
+}
+
 
 function createItem(itemData, type, lineCount){
 	var commentStr = '<span>'+itemData.commentCount+'</span>';
@@ -172,4 +186,18 @@ function createItem(itemData, type, lineCount){
 
 }
 
+function scrollBottomListener(){
 
+	$(window).scroll(function(){
+
+			var $window = $(this);
+			var visibleHeight = $window.height();
+			var scrollHeight = $window[0].scrollHeight;
+			var scrollTop = $window.scrollTop();
+
+			scrollHeight - visibleHeight
+
+
+	})
+
+}
