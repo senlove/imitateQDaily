@@ -188,16 +188,35 @@ function createItem(itemData, type, lineCount){
 
 function scrollBottomListener(){
 
+	var isLoading = false;
+
 	$(window).scroll(function(){
 
 			var $window = $(this);
 			var visibleHeight = $window.height();
-			var scrollHeight = $window[0].scrollHeight;
+			// var scrollHeight = $window[0].scrollHeight;
+			var scrollHeight = $(document).height();
 			var scrollTop = $window.scrollTop();
 
-			scrollHeight - visibleHeight
+
+			// if(!isLoading && visibleHeight + scrollTop + 100 >= scrollHeight) {
+			if(!isLoading && visibleHeight + scrollTop >= scrollHeight) {
+				isLoading = true;
+
+				$('.loading li').addClass('animated ')
 
 
+				// $('.loading').css('display', 'block');
+				// $('.loading li img').animate(
+				// 	{height: 0,
+				// 	 width: 0,
+				// 	 left:('-'+(0.5*$(this).width())/2),
+				// 	 top:('-'+(0.5*$(this).height())/2),
+				// 	 opacity:0}, 5000);
+				// // alert("ass");
+
+				isLoading = false;
+			}
 	})
 
 }

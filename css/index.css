@@ -470,6 +470,7 @@ body{
 	display: none;
 	/*64 48 32*/
 	width: 144px;
+	height: 100px
 	margin: 0px auto;
 	background-color: #aedadf;
 	padding: 20px 0;
