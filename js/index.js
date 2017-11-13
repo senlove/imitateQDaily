@@ -203,10 +203,9 @@ function scrollBottomListener(){
 			if(!isLoading && visibleHeight + scrollTop >= scrollHeight) {
 				isLoading = true;
 
-				$('.loading li').addClass('animated ')
-
-
-				// $('.loading').css('display', 'block');
+				$('.loading').css('display', 'block');
+				// $('.loading li').addClass('animated infinite zoomIn')  
+				// 				.addClass('animated infinite zoomOut'); 
 				// $('.loading li img').animate(
 				// 	{height: 0,
 				// 	 width: 0,
