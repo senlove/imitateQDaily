@@ -72,45 +72,18 @@ function loadItemData(){
 	}
 
 
-	var arrs = new Array();
-	for(var i=0; i<20; i++){
-
-		var itemData = new ItemData();
-		itemData.imgSrc = imgArrays[rnd(0,6)];
-		itemData.desc = descArrays[rnd(0,6)];
-		itemData.publishTime = 1509441932132;//毫秒做单位
-		itemData.commentCount = 10;
-		itemData.praiseCount = 15;	
-
-		if(i === 5) {
-			itemData.type = 200;
-		}
-
-		if(7 === i){
-			itemData.type = 200;
-		}
-
-		if(15 === i) {
-			itemData.type = 200;
-		}
-
-		arrs.push(itemData);
-	}
+	var arrs = createData(descArrays, imgArrays, 20);
 
 
 	var $itemContainer = $('.item-container');
-	var $ulTag = $('<ul></ul>');
+	var $ulTag = $('<ul class=ul-container></ul>');
 	$itemContainer.append($ulTag);
 	var htmlTemp = '';
 	htmlTemp += '<ul>';
 
-	// var ulTag = '<ul></ul>';
-	var noMarginRightTag =0;
-
 	var lineCount = 0;	
 	for(var i=0; i<arrs.length; i++){
 		var itemData = arrs[i];
-
 
 		var container = "";
 		switch(itemData.type){
@@ -137,6 +110,36 @@ function loadItemData(){
 	// jquery
 	$itemContainer.html(htmlTemp);
 
+}
+
+function createData(descArrays, imgArryas, arrsSize) {
+
+	var arrs = new Array();
+	for(var i=0; i<arrsSize; i++){
+
+		var itemData = new ItemData();
+		itemData.imgSrc = imgArrays[rnd(0,6)];
+		itemData.desc = descArrays[rnd(0,6)];
+		itemData.publishTime = 1509441932132;//毫秒做单位
+		itemData.commentCount = 10;
+		itemData.praiseCount = 15;	
+
+		if(i === 5) {
+			itemData.type = 200;
+		}
+
+		if(7 === i){
+			itemData.type = 200;
+		}
+
+		if(15 === i) {
+			itemData.type = 200;
+		}
+
+		arrs.push(itemData);
+	}
+
+	return arrs;
 }
 
 
@@ -186,6 +189,12 @@ function createItem(itemData, type, lineCount){
 
 }
 
+function creatLiTag(arrs) {
+
+
+
+}
+
 function scrollBottomListener(){
 
 	var isLoading = false;
@@ -198,13 +207,17 @@ function scrollBottomListener(){
 			var scrollHeight = $(document).height();
 			var scrollTop = $window.scrollTop();
 
-
-			// if(!isLoading && visibleHeight + scrollTop + 100 >= scrollHeight) {
 			if(!isLoading && visibleHeight + scrollTop >= scrollHeight) {
 				isLoading = true;
 
 				$('.loading').css('display', 'block'); 
-				$('.loading li').addClass('animated zoomIn');		 
+				$('.loading li').addClass('animated zoomIn');
+
+				//加载数据	
+
+
+
+
 				isLoading = false;
 			}
 	})
