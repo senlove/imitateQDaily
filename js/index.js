@@ -203,17 +203,8 @@ function scrollBottomListener(){
 			if(!isLoading && visibleHeight + scrollTop >= scrollHeight) {
 				isLoading = true;
 
-				$('.loading').css('display', 'block');
-				// $('.loading li').addClass('animated infinite zoomIn')  
-				// 				.addClass('animated infinite zoomOut'); 
-				// $('.loading li img').animate(
-				// 	{height: 0,
-				// 	 width: 0,
-				// 	 left:('-'+(0.5*$(this).width())/2),
-				// 	 top:('-'+(0.5*$(this).height())/2),
-				// 	 opacity:0}, 5000);
-				// // alert("ass");
-
+				$('.loading').css('display', 'block'); 
+				$('.loading li').addClass('animated zoomIn');		 
 				isLoading = false;
 			}
 	})
