@@ -467,21 +467,17 @@ body{
 
 .loading{
 	clear: both;
-	/*display: none;*/
-	/*64 48 32*/
 	width: 68px;
-	height: 30px;
+	line-height: 100px;
+	height: 100px;
 	margin: 0px auto;
-	padding: 20px 0;
 	overflow: hidden;
+
 }
+
 
 .loading li{
 	float: left;
-}
-
-.loading li img{
-	vertical-align: middle;
 }
 
 
