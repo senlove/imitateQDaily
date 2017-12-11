@@ -5,6 +5,13 @@ body{
 	background-color: #eee;
 }
 
+
+/*
+	z-index
+		5 头部
+		10 头部logo
+*/
+
 .head{
 	height: 80px;
 	width: 100%;
@@ -203,7 +210,6 @@ a{
 	height: 80px;
 	background-color: #000;
 	display: none;
-	/*display: block;*/
 }
 
 

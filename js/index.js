@@ -17,15 +17,7 @@ $(function () {
 		nextButton:'.swiper-button-next'
 	});
 
-
-	$(".head_center_all_category").click(function(event) {
-
-		//三角形发生旋转
-		var $triangleImg = $(this).find("img");
-
-		$(".head_category_list_container").toggle();
-		return false;
-	});
+	allCategoryOnclick();
 
 	loadItemData();
 
@@ -33,6 +25,21 @@ $(function () {
 
 
 });
+
+
+// 全部分类的点击事件
+function allCategoryOnclick() {
+	$(".head_center_all_category").click(function(event) {
+
+		//三角形发生旋转
+		var $triangleImg = $(this).find("img");
+		$(".head_category_list_container").toggle();
+		// $(".head_category_list_container").show();
+
+		return false;
+	});
+}
+
 
 
 function ItemData(){
@@ -295,6 +302,10 @@ function scrollBottomListener(){
 	$(window).scroll(function(){
 
 
+		//隐藏显示的全部分类
+		hideShowedAllCategory();
+
+
 		//滑出顶部的情况处理
 		var $window = $(this);
 		var scrollTop = $window.scrollTop();
@@ -340,4 +351,10 @@ function scrollBottomListener(){
 			}
 		})
 
+}
+
+function hideShowedAllCategory() {
+	if($(".head_category_list_container").is(':visible')){
+		$(".head_category_list_container").hide();
+	}
 }
