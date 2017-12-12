@@ -17,7 +17,7 @@ $(function () {
 		nextButton:'.swiper-button-next'
 	});
 
-	allCategoryOnclick();
+	// allCategoryOnclick();
 
 	loadItemData();
 
@@ -303,7 +303,7 @@ function scrollBottomListener(){
 
 
 		//隐藏显示的全部分类
-		hideShowedAllCategory();
+		// hideShowedAllCategory();
 
 
 		//滑出顶部的情况处理
