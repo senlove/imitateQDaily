@@ -17,7 +17,7 @@ $(function () {
 		nextButton:'.swiper-button-next'
 	});
 
-	// allCategoryOnclick();
+	allCategoryOnclick();
 
 	loadItemData();
 
