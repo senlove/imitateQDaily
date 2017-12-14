@@ -305,9 +305,9 @@ function scrollBottomListener(){
 		//隐藏显示的全部分类
 		hideShowedAllCategory();
 
-
 		//滑出顶部的情况处理
 		showHideHeadLogin(this);
+
 		var $window = $(this);
 		//滚动条距离顶部的距离
 		var scrollTop = $window.scrollTop();

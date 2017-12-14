@@ -36,7 +36,7 @@ body{
 .head_container{
 	max-width: 1400px;
 	min-width: 1190px;
-	height: 80px;
+	height: 100%;
 	margin: 0 auto;
 	position: relative;
 	/*background-color: #0ff;*/
@@ -126,7 +126,7 @@ a{
 	margin-left: 425px;
 	margin-right: 350px;
 	/*margin-right: 520px;*/
-	height: 80px;
+	height: 100%;
 	border-right: 1px solid #4d4d4d;
 	position: relative;
 	line-height: 80px;
@@ -169,7 +169,7 @@ a{
 }	
 
 .head_center_all_category a{
-	line-height: 80px;
+	line-height: 100%;
 }
 
 .head_center_all_category a img{
@@ -178,30 +178,31 @@ a{
 
 
 .head_right{
-	/*float: right;*/
 	position: absolute;
 	right: 0px;
 	top: 0px;
 	width: 350px;
-	/*width: 520px;*/
 	height: 100%;
 }
 
 .head_right_app{
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	float: left;
 	width: 70px;
-	height: 80px;
-	line-height: 80px;
-	text-align: center;
+	height: 100%;
 	border-right: 1px solid #4d4d4d;
 }
 
 .head_right_search{
 	float: left;
 	width: 60px;
-	height: 80px;
-	line-height: 80px;
-	text-align: center;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	float: left;
 	border-right: 1px solid #4d4d4d;
 }
 
@@ -221,30 +222,29 @@ a{
 	padding-right: 10px;
 }
 
-.head_right_about{
-	float: left;
-}
 
-.head_right_about ul{
-	background-color: #ff0000;
-}
-
-.head_right_about li{
+.head_right_about_us{
 	float: left;
-	line-height: 80px;
-	text-align: center;
+	height: 100%;
+	display: flex;
+	align-items: center;
 	margin-left: 15px;
 }
 
-/*.head_right_about li:first-child a{
-	display: block;
-	width: 20px;
-	height: 20px;
-	background: url("../imgs/head_right_weibo.png") no-repeat scroll 0px 0px;
-}*/
+.head_right_about_weibo{
+	float: left;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	margin-left: 15px;
+}
 
-.head_right_about li img{
-	vertical-align: middle;
+.head_right_about_weixin{
+	float: left;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	margin-left: 15px;
 }
 
 
@@ -257,7 +257,7 @@ a{
 	top: 80px;
 	left: 0px;
 	z-index: 3;
-	/*display: none;*/
+	display: none;
 }
 
 .head_category_list{
