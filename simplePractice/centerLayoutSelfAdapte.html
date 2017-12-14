@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>center layout self adapt</title>
+	<style type="text/css">	
+		
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.container{
+			height: 80px;
+			/*width: 1440px;*/
+			/*width: 100%*/
+			max-width: 1440px;
+			margin: 0 auto;
+			background-color: #000;
+			/*position: relative;*/
+			color: #fff;
+		}
+
+		.left{
+			float: left;
+			width: 425px;
+			height: 100%;
+			border-right: 1px solid #ccc;
+/*			position: absolute;
+			left: 0px;
+			top: 0px;	*/
+		}
+		
+		.right{
+			float: right;
+			width: 350px;
+			height: 100%;
+/*			position: absolute;
+			top: 0px;
+			right: 0px;*/
+			background-color: #f24144;
+		}
+		
+		.center{
+			margin-left: 426px;
+			margin-right: 350px;
+			width: auto;
+			height: 100%;
+			border-right: 1px solid #ccc;
+		}
+		
+
+	</style>
+</head>
+<body>		
+		<div class="container">
+			<div class="left">left</div>
+			<div class="right">right</div>
+			<div class="center">center</div>
+		</div>
+</body>
+</html>

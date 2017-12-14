@@ -17,15 +17,7 @@ $(function () {
 		nextButton:'.swiper-button-next'
 	});
 
-
-	$(".head_center_all_category").click(function(event) {
-
-		//三角形发生旋转
-		var $triangleImg = $(this).find("img");
-
-		$(".head_category_list_container").toggle();
-		return false;
-	});
+	allCategoryOnclick();
 
 	loadItemData();
 
@@ -33,6 +25,21 @@ $(function () {
 
 
 });
+
+
+// 全部分类的点击事件
+function allCategoryOnclick() {
+	$(".head_center_all_category").click(function(event) {
+
+		//三角形发生旋转
+		var $triangleImg = $(this).find("img");
+		$(".head_category_list_container").toggle();
+		// $(".head_category_list_container").show();
+
+		return false;
+	});
+}
+
 
 
 function ItemData(){
@@ -294,17 +301,41 @@ function scrollBottomListener(){
 
 	$(window).scroll(function(){
 
+
+		//隐藏显示的全部分类
+		// hideShowedAllCategory();
+
+
+		//滑出顶部的情况处理
 		var $window = $(this);
+		var scrollTop = $window.scrollTop();
+
+		var $icLogo = $('head_left_logo_icon');
+		if(scrollTop > 50){ //缩小
+		
+			$icLogo.width($icLogo.width()*0.5);
+			$icLogo.height($icLogo.height()*0.5);
+
+		} else{ //变大
+			$icLogo.width($icLogo.width()*2);
+			$icLogo.height($icLogo.height()*2);
+		}
+
+
+		//滑到底部的处理
+
 		var visibleHeight = $window.height();
-			// var scrollHeight = $window[0].scrollHeight;
-			var scrollHeight = $(document).height();
-			var scrollTop = $window.scrollTop();
+		// var scrollHeight = $window[0].scrollHeight;
+		var scrollHeight = $(document).height();
 
-			if(!isLoading && visibleHeight + scrollTop >= scrollHeight && 2 !== loadmoreCount) {
-				isLoading = true;
 
-				$('.loading').css('display', 'block'); 
-				$('.loading li').addClass('animated zoomIn');
+		console.log(scrollTop);
+
+		if(!isLoading && visibleHeight + scrollTop >= scrollHeight && 2 !== loadmoreCount) {
+			isLoading = true;
+
+			$('.loading').css('display', 'block'); 
+			$('.loading li').addClass('animated zoomIn');
 
 				//加载数据	
 				//程序停止几秒
@@ -320,4 +351,10 @@ function scrollBottomListener(){
 			}
 		})
 
+}
+
+function hideShowedAllCategory() {
+	if($(".head_category_list_container").is(':visible')){
+		$(".head_category_list_container").hide();
+	}
 }
