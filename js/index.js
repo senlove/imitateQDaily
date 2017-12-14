@@ -303,23 +303,25 @@ function scrollBottomListener(){
 
 
 		//隐藏显示的全部分类
-		// hideShowedAllCategory();
+		hideShowedAllCategory();
 
 
 		//滑出顶部的情况处理
+		showHideHeadLogin(this);
 		var $window = $(this);
+		//滚动条距离顶部的距离
 		var scrollTop = $window.scrollTop();
 
-		var $icLogo = $('head_left_logo_icon');
-		if(scrollTop > 50){ //缩小
+		// var $icLogo = $('head_left_logo_icon');
+		// if(scrollTop > 50){ //缩小
 		
-			$icLogo.width($icLogo.width()*0.5);
-			$icLogo.height($icLogo.height()*0.5);
+		// 	$icLogo.width($icLogo.width()*0.5);
+		// 	$icLogo.height($icLogo.height()*0.5);
 
-		} else{ //变大
-			$icLogo.width($icLogo.width()*2);
-			$icLogo.height($icLogo.height()*2);
-		}
+		// } else{ //变大
+		// 	$icLogo.width($icLogo.width()*2);
+		// 	$icLogo.height($icLogo.height()*2);
+		// }
 
 
 		//滑到底部的处理
@@ -327,7 +329,6 @@ function scrollBottomListener(){
 		var visibleHeight = $window.height();
 		// var scrollHeight = $window[0].scrollHeight;
 		var scrollHeight = $(document).height();
-
 
 		console.log(scrollTop);
 
@@ -357,4 +358,22 @@ function hideShowedAllCategory() {
 	if($(".head_category_list_container").is(':visible')){
 		$(".head_category_list_container").hide();
 	}
+}
+
+function showHideHeadLogin(tagWindow) {
+	var $window = $(tagWindow);
+	//滚动条距离顶部的距离
+	var scrollTop = $window.scrollTop();
+
+	//隐藏、显示登录
+	if(scrollTop > 0){ //滚出顶部
+		$('.head_right').width(520);
+		$('.head_center').css('margin-right', 520);;
+		$('.head_right_login').css('display', 'flex');
+	} else{
+		$('.head_right').width(350);
+		$('.head_center').css('margin-right', 350);;
+		$('.head_right_login').hide();
+	}
+
 }

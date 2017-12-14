@@ -125,6 +125,7 @@ a{
 .head_center{
 	margin-left: 425px;
 	margin-right: 350px;
+	/*margin-right: 520px;*/
 	height: 80px;
 	border-right: 1px solid #4d4d4d;
 	position: relative;
@@ -182,6 +183,8 @@ a{
 	right: 0px;
 	top: 0px;
 	width: 350px;
+	/*width: 520px;*/
+	height: 100%;
 }
 
 .head_right_app{
@@ -200,6 +203,22 @@ a{
 	line-height: 80px;
 	text-align: center;
 	border-right: 1px solid #4d4d4d;
+}
+
+
+.head_right_login{
+	display: flex;
+	align-items: center;
+	padding-left: 20px;	
+	width: 180px;
+	height: 100%;
+	float: left;
+	display: none;
+}	
+
+.head_right_login a img{
+	vertical-align: middle;
+	padding-right: 10px;
 }
 
 .head_right_about{
@@ -564,6 +583,7 @@ a{
 	float: left;
 	padding-top: 5px;
 }
+
 
 .bottom-search input{
 	outline: none;
