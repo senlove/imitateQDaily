@@ -39,7 +39,6 @@ body{
 	height: 100%;
 	margin: 0 auto;
 	position: relative;
-	/*background-color: #0ff;*/
 }
 
 a{
@@ -88,11 +87,14 @@ a{
 .head_left ul{
 	float: right;
 	margin-right: 25px;
+	height: 100%;
 }
 
 .head_left ul li{
 	float: left;
-	line-height: 80px;
+	display: flex;
+	align-items: center;
+	height: 100%;
 }
 
 .head_left ul li a{
@@ -125,7 +127,6 @@ a{
 .head_center{
 	margin-left: 425px;
 	margin-right: 350px;
-	/*margin-right: 520px;*/
 	height: 100%;
 	border-right: 1px solid #4d4d4d;
 	position: relative;
@@ -143,7 +144,9 @@ a{
 
 .head_center ul li{
 	float: left;
-
+	display: flex;
+	align-items: center;
+	height: 100%;
 }
 
 .head_center ul li:not(:first-child){
@@ -166,11 +169,10 @@ a{
 	height: 100%;
 	right: 0px;
 	top: 0px;
+	display: flex;
+	align-items: center;
 }	
 
-.head_center_all_category a{
-	line-height: 100%;
-}
 
 .head_center_all_category a img{
 	margin-top: 15px;

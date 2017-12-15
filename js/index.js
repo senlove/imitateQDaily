@@ -304,7 +304,7 @@ function scrollBottomListener(){
 
 		//隐藏显示的全部分类
 		hideShowedAllCategory();
-
+		scaleHeadHeight(this);
 		//滑出顶部的情况处理
 		showHideHeadLogin(this);
 
@@ -360,10 +360,26 @@ function hideShowedAllCategory() {
 	}
 }
 
+function scaleHeadHeight(tagWindow) {
+	var $window = $(tagWindow);
+	//滚动条距离顶部的距离
+	var scrollTop = $window.scrollTop();
+
+	//隐藏、显示登录
+	if(scrollTop > 0){ //变小
+		$('.head').height(60);
+	} else{//变大
+		$('.head').height(80);
+	}
+
+}
+
+
 function showHideHeadLogin(tagWindow) {
 	var $window = $(tagWindow);
 	//滚动条距离顶部的距离
 	var scrollTop = $window.scrollTop();
+
 
 	//隐藏、显示登录
 	if(scrollTop > 0){ //滚出顶部
@@ -375,5 +391,6 @@ function showHideHeadLogin(tagWindow) {
 		$('.head_center').css('margin-right', 350);;
 		$('.head_right_login').hide();
 	}
-
 }
+
+
