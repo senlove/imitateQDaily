@@ -302,11 +302,26 @@ a{
 
 }
 
+/*.swiper-button-prev:before{
+	/*display: none;*/
+	width: 32px;
+	height: 32px;
+	content: '';
+	border-radius: 16px;
+	background-color: #ccc;
+}*/
+
 .swiper-button-prev{
-	background-image: url("../imgs/swiper_pre.png");
+	/*display: none;*/
+	width: 32px;
+	height: 32px;
+	/*border-radius: 16px;*/
+	/*background-color: #ccc;*/
+	/*background-image: url("../imgs/swiper_pre.png");*/
 }
 
 .swiper-button-next{
+	display: none;
 	background-image: url("../imgs/swiper_next.png");
 }
 
@@ -388,7 +403,6 @@ a{
 
 
 .item-container{
-	/*width: 1010px;*/
 	margin-top: 10px;
 }
 

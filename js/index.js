@@ -1,21 +1,7 @@
 
-
-// 一个范围的随机数
-function rnd(n, m){
-	var random = Math.floor(Math.random()*(m-n+1)+n);
-	return random;
-}
-
-
 $(function () {
 
-	var mySwiper = new Swiper ('.swiper-container', {
-		direction:'horizontal',
-		autoplay:2000,
-		loop:true,
-		prevButton:'.swiper-button-prev',
-		nextButton:'.swiper-button-next'
-	});
+	swiperInit();
 
 	allCategoryOnclick();
 
@@ -25,6 +11,39 @@ $(function () {
 
 
 });
+
+
+// 一个范围的随机数
+function rnd(n, m){
+	var random = Math.floor(Math.random()*(m-n+1)+n);
+	return random;
+}
+
+// swiper 初始化
+function swiperInit() {
+	var mySwiper = new Swiper ('.swiper-container', {
+		direction:'horizontal',
+		autoplay:2000,
+		loop:true,
+		prevButton:'.swiper-button-prev',
+		nextButton:'.swiper-button-next'
+	});
+
+	var $mySwiper = $('.swiper-container');
+	var $mySwiperPre = $('.swiper-button-prev');
+	var $mySwiperNext = $('.swiper-button-next');
+
+	$mySwiper.mouseenter(function() {
+		mySwiper.stopAutoplay();
+		$mySwiperPre.show();
+		$mySwiperNext.show();
+	});
+	$mySwiper.mouseleave(function() {
+		mySwiper.startAutoplay();
+		$mySwiperPre.hide();
+		$mySwiperNext.hide();
+	});
+}
 
 
 // 全部分类的点击事件
@@ -85,7 +104,8 @@ var imgArrays = [
 
 
 
-var lineCount = 0;	
+var lineCount = 0;
+
 function loadItemData(){
 
 		var arrs = createData(descArrays, imgArrays, 20);
@@ -305,32 +325,17 @@ function scrollBottomListener(){
 		//隐藏显示的全部分类
 		hideShowedAllCategory();
 		scaleHeadHeight(this);
-		//滑出顶部的情况处理
-		// showHideHeadLogin(this);
 
 		var $window = $(this);
 		//滚动条距离顶部的距离
 		var scrollTop = $window.scrollTop();
-
-		// var $icLogo = $('head_left_logo_icon');
-		// if(scrollTop > 50){ //缩小
-		
-		// 	$icLogo.width($icLogo.width()*0.5);
-		// 	$icLogo.height($icLogo.height()*0.5);
-
-		// } else{ //变大
-		// 	$icLogo.width($icLogo.width()*2);
-		// 	$icLogo.height($icLogo.height()*2);
-		// }
-
-
 		//滑到底部的处理
 
 		var visibleHeight = $window.height();
 		// var scrollHeight = $window[0].scrollHeight;
 		var scrollHeight = $(document).height();
 
-		console.log(scrollTop);
+		// console.log(scrollTop);
 
 		if(!isLoading && visibleHeight + scrollTop >= scrollHeight && 2 !== loadmoreCount) {
 			isLoading = true;
