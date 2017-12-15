@@ -365,11 +365,25 @@ function scaleHeadHeight(tagWindow) {
 	//滚动条距离顶部的距离
 	var scrollTop = $window.scrollTop();
 
-	//隐藏、显示登录
+	//隐藏、显示登录 head-left-logo 大小变化
 	if(scrollTop > 0){ //变小
 		$('.head').height(60);
+
+		$('.head_left_logo').height(60);
+		$('.head_left_logo').width(120);
+		$('.head_left_logo_icon').css('display', 'inline-block');
+		$('.head_left_logo_icon').width(15);
+		$('.head_left_logo_icon').height(30);
+		$('.head_left_logo_txt').css('display', 'inline-block');
 	} else{//变大
 		$('.head').height(80);
+
+		$('.head_left_logo').height(120);
+		$('.head_left_logo').width(90);
+		$('.head_left_logo_icon').css('display', 'block');
+		$('.head_left_logo_icon').width(30);
+		$('.head_left_logo_icon').height(65);
+		$('.head_left_logo_txt').css('display', 'block');
 	}
 
 }

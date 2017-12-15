@@ -60,12 +60,9 @@ a{
 	background-color: #000;
 	position: absolute;
 	z-index: 10;
-	display: table;
-}
-
-.head_left_logo_icon_txt_container{
-	display: table-cell;
-	vertical-align: middle;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 
