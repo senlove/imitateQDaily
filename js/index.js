@@ -306,7 +306,7 @@ function scrollBottomListener(){
 		hideShowedAllCategory();
 		scaleHeadHeight(this);
 		//滑出顶部的情况处理
-		showHideHeadLogin(this);
+		// showHideHeadLogin(this);
 
 		var $window = $(this);
 		//滚动条距离顶部的距离
@@ -360,30 +360,62 @@ function hideShowedAllCategory() {
 	}
 }
 
+var isDimishing = false;
+var isLarging = false;
+
 function scaleHeadHeight(tagWindow) {
 	var $window = $(tagWindow);
 	//滚动条距离顶部的距离
 	var scrollTop = $window.scrollTop();
 
 	//隐藏、显示登录 head-left-logo 大小变化
+
 	if(scrollTop > 0){ //变小
-		$('.head').height(60);
 
-		$('.head_left_logo').height(60);
-		$('.head_left_logo').width(120);
-		$('.head_left_logo_icon').css('display', 'inline-block');
-		$('.head_left_logo_icon').width(15);
-		$('.head_left_logo_icon').height(30);
-		$('.head_left_logo_txt').css('display', 'inline-block');
+		if($('.head').height() > 60 && !isDimishing) {
+
+			isDimishing = true;
+
+			$('.head_left_logo').height(60);
+			$('.head_left_logo').width(120);
+			$('.head_left_logo_icon').css('display', 'inline-block');
+			$('.head_left_logo_icon').width(15);
+			$('.head_left_logo_icon').height(30);
+			$('.head_left_logo_txt').css('display', 'inline-block');
+
+			$('.head').stop(false, true).animate({'height': '60'}, 'slow', function() {
+
+				$('.head_right').width(520);
+				$('.head_center').css('margin-right', 520);;
+				$('.head_right_login').css('display', 'flex');
+
+				isDimishing = false;
+
+			});
+		}
+
 	} else{//变大
-		$('.head').height(80);
 
-		$('.head_left_logo').height(120);
-		$('.head_left_logo').width(90);
-		$('.head_left_logo_icon').css('display', 'block');
-		$('.head_left_logo_icon').width(30);
-		$('.head_left_logo_icon').height(65);
-		$('.head_left_logo_txt').css('display', 'block');
+		if(!isLarging){
+			isLarging = true;
+
+			$('.head_right').width(350);
+			$('.head_center').css('margin-right', 350);;
+			$('.head_right_login').hide();
+
+			$('.head').stop(false, true).animate({'height': '80'}, 'slow', function() {
+
+				$('.head_left_logo').height(120);
+				$('.head_left_logo').width(90);
+				$('.head_left_logo_icon').css('display', 'block');
+				$('.head_left_logo_icon').width(30);
+				$('.head_left_logo_icon').height(65);
+				$('.head_left_logo_txt').css('display', 'block');
+
+				isLarging = false;
+			});
+
+		}
 	}
 
 }
