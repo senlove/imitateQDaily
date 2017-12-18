@@ -1,4 +1,5 @@
 @import url("common.css");
+@import url("swiper-3.4.2.min.css");
 
 
 body{
@@ -297,13 +298,9 @@ a{
 }
 
 
-.swiper-slide-item-container{
-	position: relative;
-
-}
 
 /*.swiper-button-prev:before{
-	/*display: none;*/
+	/*display: none;
 	width: 32px;
 	height: 32px;
 	content: '';
@@ -323,6 +320,22 @@ a{
 .swiper-button-next{
 	display: none;
 	background-image: url("../imgs/swiper_next.png");
+}
+
+/*
+.my-swiper-button-prev{
+	background-image: url("../imgs/swiper_pre.png");
+}
+
+.my-swiper-button-next{
+	background-image: url("../imgs/swiper_next.png");
+}*/
+
+
+
+.swiper-slide-item-container{
+	position: relative;
+
 }
 
 .swiper-slide-item-container img{

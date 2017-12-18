@@ -26,22 +26,28 @@ function swiperInit() {
 		autoplay:2000,
 		loop:true,
 		prevButton:'.swiper-button-prev',
-		nextButton:'.swiper-button-next'
+		nextButton:'.swiper-button-next',
+		pagination: {
+        	el: '.swiper-pagination',
+      	}
 	});
+
 
 	var $mySwiper = $('.swiper-container');
 	var $mySwiperPre = $('.swiper-button-prev');
 	var $mySwiperNext = $('.swiper-button-next');
+	// var $mySwiperPre = $('.my-swiper-button-prev');
+	// var $mySwiperNext = $('.my-swiper-button-next');
 
 	$mySwiper.mouseenter(function() {
 		mySwiper.stopAutoplay();
-		$mySwiperPre.show();
-		$mySwiperNext.show();
+		// $mySwiperPre.show();
+		// $mySwiperNext.show();
 	});
 	$mySwiper.mouseleave(function() {
 		mySwiper.startAutoplay();
-		$mySwiperPre.hide();
-		$mySwiperNext.hide();
+		// $mySwiperPre.hide();
+		// $mySwiperNext.hide();
 	});
 }
 
