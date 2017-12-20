@@ -22,6 +22,7 @@
 		.main-container{
 			width: 755px;
 			height: 450px;
+			margin: 0 auto;
 		}
 
 		.swiper-container {
@@ -31,7 +32,7 @@
 		.swiper-slide {
 			text-align: center;
 			font-size: 18px;
-			background: #fff;
+			background: #123413;
 			/* Center slide text vertically */
 			display: -webkit-box;
 			display: -ms-flexbox;
@@ -46,6 +47,15 @@
 			-webkit-align-items: center;
 			align-items: center;
 		}
+		
+		.swiper-pagination-bullet{
+			background: rgba(255, 255, 255, 0.3);
+		}
+
+		.swiper-pagination-bullet-active{
+			background: #ffcb1f;
+		}
+
 	</style>
 </head>
 <body>
@@ -70,17 +80,27 @@
 	</div>
 	
 	<!-- Swiper JS -->
+	<script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
 	<script src="../js/swiper-3.4.2.jquery.min.js"></script>
 
 	<!-- Initialize Swiper -->
-	<script>
-		var swiper = new Swiper('.swiper-container', {
-			direction:'horizontal',
-			loop:true,
-			pagination: {
-				el: '.swiper-pagination',
-			},
+	<script>	
+
+		$(function() {
+
+			var swiper = new Swiper('.swiper-container', {
+				direction:'horizontal',
+				loop:true,
+				pagination:'.swiper-pagination'
+
+			});
+
 		});
+
+			// pagination: {
+			// 	el: '.swiper-pagination',
+			// },
+
 	</script>
 </body>
 </html>

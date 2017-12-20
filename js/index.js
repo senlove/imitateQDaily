@@ -21,15 +21,14 @@ function rnd(n, m){
 
 // swiper 初始化
 function swiperInit() {
+	
 	var mySwiper = new Swiper ('.swiper-container', {
 		direction:'horizontal',
 		autoplay:2000,
 		loop:true,
 		prevButton:'.swiper-button-prev',
 		nextButton:'.swiper-button-next',
-		pagination: {
-        	el: '.swiper-pagination',
-      	}
+		pagination:'.swiper-pagination'
 	});
 
 
