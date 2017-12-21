@@ -128,16 +128,18 @@ function loadSwiperItemData() {
 
 		var $swiperSlide = $('<div class="swiper-slide"></div>');
 
-		var swipeItemContainerTxt = '<div class="swiper-slide-item-container">'+
-										'<a href=""><img src="'+swiperItemData.imgSrc+'"></a>'+
-										'<a class="swiper-slide-item-container-category" href="#">'+swiperItemData.category+'</a>'+
-										'<a class="swiper-slide-item-container-title" href="#">'+swiperItemData.desc+'</a>'+	
-									'</div>';
-
+		// var swipeItemContainerTxt = '<div class="swiper-slide-item-container">'+
+		// 								'<a href=""><img src="'+swiperItemData.imgSrc+'"></a>'+
+		// 								'<a class="swiper-slide-item-container-category" href="#">'+swiperItemData.category+'</a>'+
+		// 								'<a class="swiper-slide-item-container-title" href="#">'+swiperItemData.desc+'</a>'+	
+		// 							'</div>';
+		var swipeItemContainerTxt = `<div class="swiper-slide-item-container">\
+									<a href=""><img src="${swiperItemData.imgSrc}"></a>\
+									<a class="swiper-slide-item-container-category" href="#">${swiperItemData.category}</a>\
+									<a class="swiper-slide-item-container-title" href="#">${swiperItemData.desc}</a>\
+									</div>`;
 		$swiperSlide.html(swipeItemContainerTxt);
-
 		$swiperWrapper.append($swiperSlide);
-
 	}
 }
 
