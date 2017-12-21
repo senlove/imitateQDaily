@@ -126,12 +126,22 @@ function loadSwiperItemData() {
 	for(var i=0; i<swipeItemDataArrs.length; i++){
 		var swiperItemData = swipeItemDataArrs[i];
 
+		var firstDesc = "";
+		var secondDesc = "";
+		if(swiperItemData.desc.length>30){
+			firstDesc = swiperItemData.desc.substring(0, 30);
+			secondDesc = swiperItemData.desc.substring(30);
+		} else{
+			secondDesc = swiperItemData.desc;
+		}
+
 		var $swiperSlide = $('<div class="swiper-slide"></div>');
 
 		var swipeItemContainerTxt = '<div class="swiper-slide-item-container">'+
 										'<a href=""><img src="'+swiperItemData.imgSrc+'"></a>'+
 										'<a class="swiper-slide-item-container-category" href="#">'+swiperItemData.category+'</a>'+
-										'<a class="swiper-slide-item-container-title" href="#">'+swiperItemData.desc+'</a>'+	
+										'<a class="swiper-slide-item-container-title-first" href="#">'+firstDesc+'</a>'+	
+										'<a class="swiper-slide-item-container-title-second" href="#">'+secondDesc+'</a>'+	
 									'</div>';
 
 		$swiperSlide.html(swipeItemContainerTxt);

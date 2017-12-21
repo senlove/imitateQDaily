@@ -358,7 +358,17 @@ a{
 	background-color: #000;
 }
 
-.swiper-slide-item-container-title{
+.swiper-slide-item-container-title-first{
+	position: absolute;
+	left: 20px;
+	bottom: 70px;
+	color: #fff;
+	font-size: 24px;
+	padding: 0 5px;
+	background-color: #000;
+}
+
+.swiper-slide-item-container-title-second{
 	position: absolute;
 	left: 20px;
 	bottom: 40px;
