@@ -3,8 +3,8 @@
 <head>
 	<title>imitateQDaily</title>
 	<link rel="stylesheet" type="text/css" href="css/animate.min.css">
-	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<link rel="stylesheet" type="text/css" href="css/swiper-3.4.2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.x.x/css/swiper.css"> -->
 
 	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
@@ -21,12 +21,10 @@
 			<div class="head_left">
 
 				<div class="head_left_logo">
-					<div class="head_left_logo_icon_txt_container">
-						<a href="#">
-							<img class="head_left_logo_icon" src="imgs/qDailyLogo.png">
-							<img class="head_left_logo_txt" src="imgs/qDailyLogoTxt.png">
-						</a>
-					</div>
+					<a href="#">
+						<img class="head_left_logo_icon" src="imgs/qDailyLogo.png">
+						<img class="head_left_logo_txt" src="imgs/qDailyLogoTxt.png">
+					</a>
 				</div>
 
 				<ul>
@@ -55,14 +53,14 @@
 			</div>
 			
 			<div class="head_right">
-				<a class="head_font_hover head_right_app" href="">APP</a>
+				<a class="head_right_app head_font_hover" href="">APP</a>
 				<a class="head_right_search" href=""><img src="imgs/head_right_search.png"></a>
-				<ul class="head_right_about">
-					<li><a class="head_font_hover" href="">关于我们</a></li>
-					<li><a href=""><img src="imgs/head_right_weibo.png"></a></li>
-					<!-- <li><a href=""></a></li> -->
-					<li><a href=""><img src="imgs/head_right_weixin.png"></a></li>
-				</ul>
+				<div class="head_right_login">
+					<a href="#"><img src="imgs/ic_head_right_portrait.png"><span>登录</span></a>
+				</div>
+				<a class="head_right_about_us head_font_hover" href="">关于我们</a>
+				<a class="head_right_about_weibo" href=""><img src="imgs/head_right_weibo.png"></a>
+				<a class="head_right_about_weixin" href=""><img src="imgs/head_right_weixin.png"></a>
 			</div>
 		</div>
 
@@ -92,13 +90,9 @@
 
 		<div class="swiper-login-container">
 
-			<!-- Slider main container -->
 			<div class="swiper-container">
-				<!-- Additional required wrapper -->
 				<div class="swiper-wrapper">
-					<!-- Slides -->
-					<div class="swiper-slide">
-						<!-- 这里会是动态添加不 -->
+<!-- 					<div class="swiper-slide">
 						<div class="swiper-slide-item-container">
 							<a href=""><img src="http://img.qdaily.com/article/banner/20171019073128xt3AnFg6G79azfP8.jpg?ima…!755x450r/gravity/Center/crop/755x450/quality/85/format/jpg/ignore-error/1"></a>
 
@@ -134,17 +128,15 @@
 							<a class="swiper-slide-item-container-category" href="#">智能</a>
 							<a class="swiper-slide-item-container-title" href="#">双中子星并合，“宇宙最大烟火表演”激动人心，我们看待宇宙的方式要变了吗？</a>	
 						</div>
-					</div>
+					</div> -->
 				</div>
+				
 				<!-- If we need pagination -->
-				<!-- <div class="swiper-pagination"></div> -->
+				<div class="swiper-pagination"></div>
 
-				<!-- If we need navigation buttons -->
 				<div class="swiper-button-prev"></div>
 				<div class="swiper-button-next"></div>
 
-				<!-- If we need scrollbar -->
-				<!-- <div class="swiper-scrollbar"></div>-->
 			</div> <!-- swiper-container 结束 -->
 			
 			<div class="logo-skill-container">
