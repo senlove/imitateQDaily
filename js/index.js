@@ -5,6 +5,8 @@ $(function () {
 
 	allCategoryOnclick();
 
+
+	loadSwiperItemData();
 	loadItemData();
 
 	scrollBottomListener();
@@ -62,6 +64,81 @@ function allCategoryOnclick() {
 
 		return false;
 	});
+}
+
+
+function SwipeItemData(){
+
+}
+
+SwipeItemData.prototype = {
+	imgSrc:"",
+	desc:"",
+	category:""
+}
+
+function createSwipeItemData() {
+	var categorys = [
+	"科技",
+	"设计",
+	"时尚",
+	"智能"
+	];
+
+	var imgs = [
+		"http://img.qdaily.com/article/banner/20171019073128xt3AnFg6G79azfP8.jpg?ima…!755x450r/gravity/Center/crop/755x450/quality/85/format/jpg/ignore-error/1",
+		"http://img.qdaily.com/article/banner/201710192050155gcIRKBTWwz2x6DU.jpg?ima…!755x450r/gravity/Center/crop/755x450/quality/85/format/jpg/ignore-error/1",
+		"http://img.qdaily.com/article/banner/20171020001900Ih8P7rxCS0kbMRyt.jpg?ima…!755x450r/gravity/Center/crop/755x450/quality/85/format/jpg/ignore-error/1",
+		"http://img.qdaily.com/article/banner/20171018194044zEc750JhSsKlAjMF.jpg?ima…!755x450r/gravity/Center/crop/755x450/quality/85/format/jpg/ignore-error/1"
+	];
+
+	var descs = [
+		"搜狗终于要上市了，9 张图带你看那一代老派互联网科技公司的起落",
+		"员工身心健康也是企业竞争力，办公室设计在这一点上怎么配合？｜我们的办公室④",
+		"“全球时尚行业至少五分之一的消费者都聚集在中国”",
+		"双中子星并合，“宇宙最大烟火表演”激动人心，我们看待宇宙的方式要变了吗？",
+	];
+
+	var dataArrs = new Array();
+
+	for(var i=0; i<imgs.length; i++){
+		var categoryItem = categorys[i];
+		var imgsItem = imgs[i];
+		var descItem = descs[i];
+
+		var swipeItemData = new SwipeItemData();
+		swipeItemData.category = categoryItem;
+		swipeItemData.imgSrc = imgsItem;
+		swipeItemData.desc = descItem;
+
+		dataArrs.push(swipeItemData);
+
+	}
+
+	return dataArrs;
+}
+
+function loadSwiperItemData() {
+	var swipeItemDataArrs = createSwipeItemData();
+
+	var $swiperWrapper = $('.swiper-wrapper');
+
+	for(var i=0; i<swipeItemDataArrs.length; i++){
+		var swiperItemData = swipeItemDataArrs[i];
+
+		var $swiperSlide = $('<div class="swiper-slide"></div>');
+
+		var swipeItemContainerTxt = '<div class="swiper-slide-item-container">'+
+										'<a href=""><img src="'+swiperItemData.imgSrc+'"></a>'+
+										'<a class="swiper-slide-item-container-category" href="#">'+swiperItemData.category+'</a>'+
+										'<a class="swiper-slide-item-container-title" href="#">'+swiperItemData.desc+'</a>'+	
+									'</div>';
+
+		$swiperSlide.html(swipeItemContainerTxt);
+
+		$swiperWrapper.append($swiperSlide);
+
+	}
 }
 
 
