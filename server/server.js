@@ -80,10 +80,11 @@ function createData(descArrays, imgArrays, arrsSize) {
 }
 
 
-app.get('/', function(req, response){
-	var dataList = createData(descArrays, imgArrays, 5);
+app.get('/itemList', function(req, response){
+	var dataList = createData(descArrays, imgArrays, 20);
 	response.writeHead(200, {
-		'Content-Type':"text/html; charset=utf-8"
+		'Content-Type':"text/html; charset=utf-8",
+		'Access-Control-Allow-Credentials':true
 	});
 	response.write(JSON.stringify(dataList));
 	response.end();

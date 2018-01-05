@@ -211,6 +211,8 @@ var lineCount = 0;
 function loadItemData(){
 
 		var arrs = createData(descArrays, imgArrays, 20);
+		createDataFromNet();
+
 
 		var $itemContainer = $('.item-container');
 		var $ulTag = $('<ul class=ul-item-container></ul>')
@@ -303,6 +305,32 @@ function createData(descArrays, imgArrays, arrsSize) {
 	}
 
 	return arrs;
+}
+
+function createDataFromNet(){
+	// $.get('http://localhost:8081/itemList', function(data) {
+
+	// 	var itemList = JSON.parse(data);
+	// 	console.log(itemList.length);
+	// });
+
+	$.ajax({
+		url: 'http://localhost:8081/itemList',
+		type: 'GET',
+		dataType: 'json',
+		data: {},
+	})
+	.done(function(data) {
+		console.log("success"+data);
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
+	});
+	
+
 }
 
 
