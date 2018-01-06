@@ -16,7 +16,7 @@ ItemData.prototype = {
 	type:100 //100 200 300
 }
 
-// 一个范围的随机数
+// 一个范围的随机数 0，6 包括6
 function rnd(n, m){
 	var random = Math.floor(Math.random()*(m-n+1)+n);
 	return random;
@@ -55,11 +55,20 @@ function createData(descArrays, imgArrays, arrsSize) {
 	for(var i=0; i<arrsSize; i++){
 
 		var itemData = new ItemData();
-		itemData.imgSrc = imgArrays[rnd(0,6)];
-		itemData.desc = descArrays[rnd(0,6)];
+
+		var random = rnd(0,5);
+		// console.log(random);
+		var imgRandomSrc = imgArrays[random];
+		var descRandom = descArrays[random];
+		// console.log(imgRandomSrc);
+		// console.log(descRandom);
+
+		itemData.imgSrc = imgRandomSrc;
+		itemData.desc = descRandom;
 		itemData.publishTime = 1509441932132;//毫秒做单位
 		itemData.commentCount = 10;
-		itemData.praiseCount = 15;	
+		itemData.praiseCount = 15;
+		itemData.type = 100;//搞不清楚转换为json字符串的时候没有出现这个值，所以先默认赋值		
 
 		if(i === 5) {
 			itemData.type = 200;
@@ -81,15 +90,24 @@ function createData(descArrays, imgArrays, arrsSize) {
 
 
 app.get('/itemList', function(req, response){
+
+	 console.log(req.url);
+
 	var dataList = createData(descArrays, imgArrays, 20);
+	var jsonTxt = JSON.stringify(dataList);
+
 	response.writeHead(200, {
 		'Content-Type':"text/html; charset=utf-8",
-		'Access-Control-Allow-Credentials':true
+		// 'Access-Control-Allow-Origin':'http://localhost:8081'
+		'Access-Control-Allow-Origin':'*'
 	});
-	response.write(JSON.stringify(dataList));
+	// response.writeHead(200, {
+	// 	'Content-Type':"text/html; charset=utf-8"
+	// });
+	response.write(jsonTxt);
 	response.end();
 });
 
-app.listen(8081, function(){
+app.listen(8081, 'localhost',function(){
 	console.log('来了没');
 });

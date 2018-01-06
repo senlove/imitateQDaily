@@ -206,22 +206,82 @@ var imgArrays = [
 
 
 
-var lineCount = 0;
 
 function loadItemData(){
-
-		var arrs = createData(descArrays, imgArrays, 20);
+		// var arrs = createData(descArrays, imgArrays, 20);
+		// addFirstItemList(arrs);
 		createDataFromNet();
+}
+
+function createData(descArrays, imgArrays, arrsSize) {
+
+	var arrs = new Array();
+	for(var i=0; i<arrsSize; i++){
+
+		var itemData = new ItemData();
+		itemData.imgSrc = imgArrays[rnd(0,5)];
+		itemData.desc = descArrays[rnd(0,5)];
+		itemData.publishTime = 1509441932132;//毫秒做单位
+		itemData.commentCount = 10;
+		itemData.praiseCount = 15;
+		itemData.type = 100;//搞不清楚转换为json字符串的时候没有出现这个值，所以先默认赋值	
+
+		if(i === 5) {
+			itemData.type = 200;
+		}
+
+		if(7 === i){
+			itemData.type = 200;
+		}
+
+		if(15 === i) {
+			itemData.type = 200;
+		}
+
+		arrs.push(itemData);
+	}
+
+	return arrs;
+}
+
+function createDataFromNet(){
+	$.get('http://localhost:8081/itemList', function(data) {
+
+		var itemList = JSON.parse(data);
+		console.log(itemList.length);
+		addFirstItemList(itemList);
+	});
+
+	// $.ajax({
+	// 	url: 'http://localhost:8081/itemList',
+	// 	type: 'GET',
+	// 	dataType: 'json',
+	// 	data: {},
+	// })
+	// .done(function(data) {
+	// 	console.log("success"+data);
+	// })
+	// .fail(function() {
+	// 	console.log("error");
+	// })
+	// .always(function() {
+	// 	console.log("complete");
+	// });
+	
+
+}
 
 
-		var $itemContainer = $('.item-container');
+var lineCount = 0;	
+function addFirstItemList(dataList) {
+	var $itemContainer = $('.item-container');
 		var $ulTag = $('<ul class=ul-item-container></ul>')
 		$itemContainer.append($ulTag);
 
 		var tempBidDataArrs = new Array();
 
-		for(var i=0; i<arrs.length; i++){
-			var itemData = arrs[i];
+		for(var i=0; i<dataList.length; i++){
+			var itemData = dataList[i];
 
 			var container = "";
 
@@ -276,63 +336,6 @@ function loadItemData(){
 		}
 
 }
-
-function createData(descArrays, imgArrays, arrsSize) {
-
-	var arrs = new Array();
-	for(var i=0; i<arrsSize; i++){
-
-		var itemData = new ItemData();
-		itemData.imgSrc = imgArrays[rnd(0,6)];
-		itemData.desc = descArrays[rnd(0,6)];
-		itemData.publishTime = 1509441932132;//毫秒做单位
-		itemData.commentCount = 10;
-		itemData.praiseCount = 15;	
-
-		if(i === 5) {
-			itemData.type = 200;
-		}
-
-		if(7 === i){
-			itemData.type = 200;
-		}
-
-		if(15 === i) {
-			itemData.type = 200;
-		}
-
-		arrs.push(itemData);
-	}
-
-	return arrs;
-}
-
-function createDataFromNet(){
-	// $.get('http://localhost:8081/itemList', function(data) {
-
-	// 	var itemList = JSON.parse(data);
-	// 	console.log(itemList.length);
-	// });
-
-	$.ajax({
-		url: 'http://localhost:8081/itemList',
-		type: 'GET',
-		dataType: 'json',
-		data: {},
-	})
-	.done(function(data) {
-		console.log("success"+data);
-	})
-	.fail(function() {
-		console.log("error");
-	})
-	.always(function() {
-		console.log("complete");
-	});
-	
-
-}
-
 
 function createTagItem(itemData, type, lineCount){
 	var commentStr = '<span>'+itemData.commentCount+'</span>';
