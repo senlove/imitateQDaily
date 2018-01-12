@@ -322,6 +322,26 @@ function addFirstItemList(dataList) {
 }
 
 function createTagItem(itemData, type, lineCount) {
+
+
+	'<div class=item-normal>\
+			<a href=>\
+				<div class=item-normal-category><span>商业</span></div>\
+				<img src=>\
+				<div class=item-normal-txt>\
+					<span>两大浏览器将停止自动播放视频</span>\
+				</div>\
+				<div class=item-time-comment-praise>\
+					<span>刚刚</span>\
+					<div class=item-normal-praise>\
+						<span>2</span>\
+						<span>3</span>\
+					</div>\
+				</div>\
+			</a>\
+	</div>'
+
+
     var commentStr = '<span>' + itemData.commentCount + '</span>';
     var praiseStr = '<span>' + itemData.praiseCount + '</span>';
     //这里的class还是强依赖了，修改了css文件，这里也得跟着修改
@@ -353,7 +373,7 @@ function createTagItem(itemData, type, lineCount) {
 
 
         if (4 === lineCount) {
-            return '<div class="tem-normal item-large">' + aTag + '</div>';
+            return '<div class="item-normal item-large">' + aTag + '</div>';
         }
         return '<div class="item-normal item-large item-margin-right">' + aTag + '</div>';
     } else {
