@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>return simple demo</title>
+	<script type="text/javascript">
+		
+		window.onload = function(){
+
+
+			//定义一个方法
+			function justReturnValue() {
+				var str = 'binyang';
+				return str;
+			}
+
+
+
+			function dealWithAValue(parm){
+
+				var str = "我这是新声明的";
+				var modifyStr = str + parm;
+				return modifyStr;
+			}
+
+
+			function isBiggerThanThree(parm){
+				if(parm > 3){
+					return true;
+				}
+
+				return false;
+			}
+
+
+
+			function main(){
+				// var str = justReturnValue();
+				// console.log(str);
+
+				// var otherStr = dealWithAValue('这是我传的参数');
+
+				// var isBigger = isBiggerThanThree(2);
+				var isBigger = isBiggerThanThree(5);
+
+				if(isBigger){
+					return;
+				}
+				console.log('我这个代码会执行么');
+			}
+
+			main();
+		}
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

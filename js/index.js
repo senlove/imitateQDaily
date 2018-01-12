@@ -208,8 +208,6 @@ var imgArrays = [
 
 
 function loadItemData() {
-    // var arrs = createData(descArrays, imgArrays, 20);
-    // addFirstItemList(arrs);
     createDataFromNet();
 }
 
@@ -247,52 +245,43 @@ function createData(descArrays, imgArrays, arrsSize) {
 
 function createDataFromNet() {
     $.get('http://localhost:8081/itemList', function(data) {
-
         var itemList = JSON.parse(data);
-        console.log(itemList.length);
-        addFirstItemList(itemList);
+        var $itemContainer = $('.item-container');
+        var $ulTag = $('<ul class=ul-item-container></ul>')
+        $itemContainer.append($ulTag);
+        addItemToHtml(itemList);
     });
 }
 
 
 var lineCount = 0;
 
-function addFirstItemList(dataList) {
-    var $itemContainer = $('.item-container');
-    var $ulTag = $('<ul class=ul-item-container></ul>')
-    $itemContainer.append($ulTag);
+function addItemToHtml(dataList) {
 
+	var $ulTag = $('.ul-item-container');
     var tempBidDataArrs = new Array();
 
     for (var i = 0; i < dataList.length; i++) {
         var itemData = dataList[i];
 
-        var container = "";
-
         if (200 != itemData.type && lineCount <= 2 && tempBidDataArrs.length > 0) {
 
             var bigItemData = tempBidDataArrs.shift();
             lineCount = lineCount + 2
-            container = createTagItem(itemData, 200, lineCount);
-            var $liTag = $('<li></li>');
-            $liTag.html(container);
+            var $liTag = createLargeItem(itemData);
             $ulTag.append($liTag);
 
             lineCount++;
-            container = createTagItem(itemData, 100, lineCount);
-            var $liTag = $('<li></li>');
-            $liTag.html(container);
-            $ulTag.append($liTag);
+            container = createNormalItem(itemData);
+            var $liLargeTag = $('<li></li>');
+            $ulTag.append($liLargeTag);
 
 
         } else {
 
             if (100 === itemData.type) {
                 lineCount++;
-                container = createTagItem(itemData, 100, lineCount);
-
-                var $liTag = $('<li></li>');
-                $liTag.html(container);
+                var $liTag = createNormalItem(itemData);
                 $ulTag.append($liTag);
 
             } else if (200 === itemData.type) {
@@ -304,11 +293,7 @@ function addFirstItemList(dataList) {
                     continue;
                 }
 
-                container = createTagItem(itemData, 200, lineCount);
-
-
-                var $liTag = $('<li></li>');
-                $liTag.html(container);
+                var $liTag = createLargeItem(itemData);
                 $ulTag.append($liTag);
             }
         }
@@ -321,134 +306,71 @@ function addFirstItemList(dataList) {
 
 }
 
-function createTagItem(itemData, type, lineCount) {
 
+function createNormalItem(itemData){
+	//这样的方式还是觉得麻烦
+	var itemStartStr = '<div class="item-normal item-margin-right">';
+	if(4 === lineCount) {
+		itemStartStr = '<div class="item-normal">';
+	}
 
-	'<div class=item-normal>\
-			<a href=>\
-				<div class=item-normal-category><span>商业</span></div>\
-				<img src=>\
-				<div class=item-normal-txt>\
-					<span>两大浏览器将停止自动播放视频</span>\
-				</div>\
-				<div class=item-time-comment-praise>\
-					<span>刚刚</span>\
-					<div class=item-normal-praise>\
-						<span>2</span>\
-						<span>3</span>\
-					</div>\
-				</div>\
-			</a>\
-	</div>'
+	var itemOtherStr = '<a href=>'+
+							'<div class=item-normal-category>'+
+								'<span>商业</span>'+
+							'</div>'+
+							'<img src="'+itemData.imgSrc+'">'+
+							'<div class=item-normal-txt>'+
+								'<span>'+itemData.desc+'</span>'+
+							'</div>'+
+							'<div class=item-time-comment-praise>'+
+								'<span>刚刚</span>'+
+								'<div class=item-normal-praise>'+
+									'<span>'+itemData.commentCount+'</span>'+
+									'<span>'+itemData.praiseCount+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</a>'+
+					'</div>'
 
-
-    var commentStr = '<span>' + itemData.commentCount + '</span>';
-    var praiseStr = '<span>' + itemData.praiseCount + '</span>';
-    //这里的class还是强依赖了，修改了css文件，这里也得跟着修改
-    var divCommentPraise = '<div class="item-normal-praise">' + commentStr + 　praiseStr + '</div>';
-
-
-
-    var timeStr = '<span>刚刚</span>';
-    var divTimeCommentPraise = '';
-    if (200 === type) {
-        divTimeCommentPraise = '<div class="item-time-comment-praise item-large-time-comment-praise">' + timeStr + divCommentPraise + '</div>';
-    } else {
-        divTimeCommentPraise = '<div class="item-time-comment-praise">' + timeStr + divCommentPraise + '</div>';
-    }
-
-    var descStr = '<span>' + itemData.desc + '</span>';
-    // var divTxt = '<div class="item-normal-txt">'+descStr+divTimeCommentPraise+'</div>';
-    var divTxt = '<div class="item-normal-txt">' + descStr + '</div>';
-
-    var img = '<img src="' + itemData.imgSrc + '">';
-
-    var categoryStr = '<span>商业</span>';
-    var divCategory = divCategory = '<div class="item-normal-category">' + categoryStr + '</div>';
-
-    var aTag = '<a href="">' + divCategory + img + divTxt + divTimeCommentPraise + '</a>';
-
-    if (200 === type) {
-
-
-
-        if (4 === lineCount) {
-            return '<div class="item-normal item-large">' + aTag + '</div>';
-        }
-        return '<div class="item-normal item-large item-margin-right">' + aTag + '</div>';
-    } else {
-
-        if (4 === lineCount) {
-            return '<div class="item-normal">' + aTag + '</div>';
-        }
-        return '<div class="item-normal item-margin-right">' + aTag + '</div>';
-    }
-
-
+	var itemStr = itemStartStr + itemOtherStr;
+	var $liTag = $('<li></li>');
+	$liTag.html(itemStr);
+	return $liTag;
 }
 
-function addLiTag(arrs) {
-    var $ulTag = $('.ul-item-container');
-    var tempBidDataArrs = new Array();
 
-    for (var i = 0; i < arrs.length; i++) {
-        var itemData = arrs[i];
+function createLargeItem(itemData){
+	//这样的方式还是觉得麻烦
+	var itemStartStr = '<div class="item-normal item-large item-margin-right">';
+	if(4 === lineCount) {
+		itemStartStr = '<div class="item-normal item-large">';
+	}
 
-        var container = "";
+	var itemOtherStr = '<a href=>'+
+							'<div class=item-normal-category>'+
+								'<span>商业</span>'+
+							'</div>'+
+							'<img src="'+itemData.imgSrc+'">'+
+							'<div class=item-normal-txt>'+
+								'<span>'+itemData.desc+'</span>'+
+							'</div>'+
+							'<div class="item-time-comment-praise item-large-time-comment-praise">'+
+								'<span>刚刚</span>'+
+								'<div class=item-normal-praise>'+
+									'<span>'+itemData.commentCount+'</span>'+
+									'<span>'+itemData.praiseCount+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</a>'+
+					'</div>'
 
-        //这里有点恶心
-        //一行有三个小item 加上一个大item的处理
-        if (200 != itemData.type && lineCount <= 2 && tempBidDataArrs.length > 0) {
-
-            var bigItemData = tempBidDataArrs.shift();
-            lineCount = lineCount + 2
-            container = createTagItem(itemData, 200, lineCount);
-            var $liTag = $('<li></li>');
-            $liTag.html(container);
-            $ulTag.append($liTag);
-
-            lineCount++;
-            container = createTagItem(itemData, 100, lineCount);
-            var $liTag = $('<li></li>');
-            $liTag.html(container);
-            $ulTag.append($liTag);
-
-
-        } else {
-
-            if (100 === itemData.type) {
-                lineCount++;
-                container = createTagItem(itemData, 100, lineCount);
-
-                var $liTag = $('<li></li>');
-                $liTag.html(container);
-                $ulTag.append($liTag);
-
-            } else if (200 === itemData.type) {
-                lineCount = lineCount + 2;
-
-                if (lineCount > 4) { //移到下一行
-                    tempBidDataArrs.push(itemData);
-                    lineCount = lineCount - 2;
-                    continue;
-                }
-
-                container = createTagItem(itemData, 200, lineCount);
-
-
-                var $liTag = $('<li></li>');
-                $liTag.html(container);
-                $ulTag.append($liTag);
-            }
-        }
-
-        if (4 === lineCount) {
-            lineCount = 0;
-        }
-
-    }
-
+	var itemStr = itemStartStr + itemOtherStr;
+	var $liTag = $('<li></li>');
+	$liTag.html(itemStr);
+	return $liTag;
 }
+
+
 
 var loadmoreCount = 0;
 
@@ -489,7 +411,8 @@ function scrollBottomListener() {
 
                 	var moreArrs = JSON.parse(data);
                 	console.log(moreArrs.length);
-                	addLiTag(moreArrs);
+                	// addLiTag(moreArrs);
+                	addItemToHtml(moreArrs);
                 	$('.loading').css('display', 'none');
                 	isLoading = false;
                 	loadmoreCount++;
