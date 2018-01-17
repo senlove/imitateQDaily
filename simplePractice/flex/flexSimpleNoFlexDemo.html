@@ -2,14 +2,12 @@
 <html>
 <head>
 	<title>flex simple demo</title>
-	<link rel="stylesheet" type="text/css" href="flexSimpleDemo.css">
+	<link rel="stylesheet" type="text/css" href="flexSimpleNoFlexDemo.css">
 </head>
 <body>
 	<div class="head">
-		<div class="head-left">
-			<div class="head-logo">LOGO</div>
-			<div class="head-title">Document Title</div>
-		</div>
+		<div class="head-logo">LOGO</div>
+		<div class="head-title">Document Title</div>
 
 		<div class="head-right">
 			<div class="head-right-change">All changes saved</div>
@@ -29,21 +27,20 @@
 
 			<div class="pane-items-container">
 				<div class="pane-items">
-					<div class="pane-items-li">
-						<img src="../../imgs/ic_pane_one.png"><span>CATEGORY</span>
-					</div>
-
-					<div class="pane-items-li">
-						<img src="../../imgs/ic_pane_two.png"><span>CATEGORY</span>
-					</div>
-
-					<div class="pane-items-li">
-						<img src="../../imgs/ic_pane_three.png"><span>CATEGORY</span>
-					</div>
-					<div class="pane-items-li">
-						<img src="../../imgs/ic_pane_four.png"><span>CATEGORY</span>
-					</div>
-
+					<ul>
+						<li>
+							<img src="../../imgs/ic_pane_one.png"><span>CATEGORY</span>
+						</li>
+						<li>
+							<img src="../../imgs/ic_pane_two.png"><span>CATEGORY</span>
+						</li>
+						<li>
+							<img src="../../imgs/ic_pane_three.png"><span>CATEGORY</span>
+						</li>
+						<li>
+							<img src="../../imgs/ic_pane_four.png"><span>CATEGORY</span>
+						</li>
+					</ul>	
 				</div>
 
 				<div class="pane-items-detail">
@@ -55,10 +52,12 @@
 		<div class="main-views">
 			<div class="views-container">
 				<div class="views-list">
-					<div class="views-list-li">VIEW 1</div>
-					<div class="views-list-li">VIEW 1</div>
-					<div class="views-list-li">VIEW 1</div>
-					<div class="views-list-li">VIEW 1</div>
+					<ul>
+						<li>VIEW 1</li>
+						<li>VIEW 1</li>
+						<li>VIEW 1</li>
+						<li>VIEW 1</li>
+					</ul>
 				</div>
 
 				<div class="view-shop-cart">

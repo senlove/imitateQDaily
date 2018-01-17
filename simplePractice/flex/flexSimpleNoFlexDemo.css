@@ -12,16 +12,10 @@ ul{
 	height: 60px;
 	background-color: #3f51b5;
 	color: #fff;
-	display: flex;
-	justify-content: space-between;
-}
-
-.head-left{
-	display: flex;
-	height: 100%;
 }
 
 .head-logo{
+	float: left;
 	height: 100%;
 	display: flex;
 	justify-content: center;
@@ -30,6 +24,7 @@ ul{
 }
 
 .head-title{
+	float: left;
 	height: 100%;
 	display: flex;
 	justify-content: center;
@@ -38,11 +33,12 @@ ul{
 }
 
 .head-right{
+	float: right;
 	height: 100%;
-	display: flex;
 }
 
 .head-right-change{
+	float: left;
 	height: 100%;
 	display: flex;
 	justify-content: center;
@@ -51,6 +47,7 @@ ul{
 }
 
 .head-right-search{
+	float: left;
 	height: 100%;
 	display: flex;
 	justify-content: center;
@@ -59,6 +56,7 @@ ul{
 }
 
 .head-right-name{
+	float: left;
 	height: 100%;
 	display: flex;
 	justify-content: center;
@@ -69,12 +67,12 @@ ul{
 .main{
 	width: 100%;
 	height: 400px;
-	display: flex;
 }
 
 .main-pane{
 	width: 240px;
 	height: 100%;
+	float: left;
 }
 
 .pane-title{
@@ -83,8 +81,6 @@ ul{
 	line-height: 20px;
 	background-color: #eee;
 	font-size: 10px;
-	display: flex;
-	justify-content: space-between;
 }
 
 .pane-title span{
@@ -92,6 +88,7 @@ ul{
 }
 
 .pane-title-close{
+	float: right;
 	height: 100%;	
 	margin-right: 5px;
 	display: flex;
@@ -106,36 +103,34 @@ ul{
 .pane-items-container{
 	width: 100%;
 	height: 380px;
-	display: flex;
 }
 
 .pane-items{
 	width: 80px;
+	float: left;
 	background: #eee;
 	height: 100%;
-	display: flex;
-	flex-direction: column;
 }
 
-
-.pane-items .pane-items-li{
+.pane-items li{
 	font-size: 12px;
 	color: #32408f;
 	text-align: center;
 	padding: 10px 5px;
 }
 
-.pane-items .pane-items-li img{
+.pane-items li img{
 	width: 36px;
 	height: 36px;
 }
 
 
-.pane-items .pane-items-li span{
+.pane-items li span{
 	margin-top: 5px;
 }
 
 .pane-items-detail{
+	float: left;
 	height: 100%;
 	width: 160px;
 	text-align: center;
@@ -143,7 +138,7 @@ ul{
 
 
 .main-views{
-	width: 100%;
+	overflow: hidden;
 	height: 100%;
 }
 
@@ -151,23 +146,19 @@ ul{
 	width: 100%;
 	height: 20px;
 	background: #606fc7;
-	display: flex;
-	justify-content: space-between;
 }
 
-.views-list{
-	display: flex;
-}
-
-.views-container .views-list-li{
+.views-container li{
 	font-size: 12px;
-	height: 20px;
+	height: 20px%;
 	line-height: 20px;
 	color: #fff;
 	padding: 0 5px;
+	float: left;
 }
 
 .view-shop-cart{
+	float: right;
 	margin-right: 10px;
 }
 
