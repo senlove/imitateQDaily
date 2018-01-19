@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>time out method simple demo</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.main{
+			width: 80%;
+			margin: 0 auto;
+			margin-top: 50px;
+		}
+		
+		#progress{
+			width: 0px;
+			background-color: #222;
+		}
+	</style>
+
+	<script type="text/javascript">
+		
+		window.onload = function(){
+
+			var btn = document.getElementById('btn');
+
+			var percent = 0;
+			var progressTag = document.getElementById('progress');
+
+			function updatePercent(){
+				percent += 1;
+				progressTag.innerText = percent + '%';
+				progressTag.style.width = parseInt(progressTag.style.width) +10 + 'px';
+				console.log(progressTag.style.width);
+
+				if(percent < 100) {
+					setTimeout(function(){
+						updatePercent();
+					}, 200);
+				}
+			}
+
+
+			btn.onclick = function(){
+				updatePercent();
+			}
+		} 
+
+	</script>
+</head>
+<body>
+	<div class="main">
+		<div id="progress">0%</div>
+		<button id='btn'>run</button>
+	</div>
+</body>
+</html>
