@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>this simple demo</title>
+	<script type="text/javascript">
+		window.onload = function(){
+
+			function MyObject(nameValue, ageValue){
+				this.name = nameValue;
+				this.age = ageValue;
+
+				this.say = function(){
+					console.log(this === window);
+					console.log(typeof this);
+					console.log(this.name + ' wangwang');
+				}
+			};
+
+			var myObject = new MyObject('dog', 2);
+			setTimeout(myObject.say(), 1000);
+
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>
