@@ -10,21 +10,23 @@
 		}
 
 		.main{
-			width: 30%;
+			width: 40%;
 			height: 300px;
 			margin: 0 auto;
 			border: 1px solid #0d8abf;
 		}
 		
 		.input-container{
-			font-size: 14px;
-			/*display: flex;*/
-			/*align-items: center;*/
-			/*justify-content: center;*/
+			font-size: 12px;
+			display: flex;
+			align-items: center;
+			margin-left: 30px;
 			margin-top: 20px;
 		}
 		
 		.input-container label{
+			display: inline-block;
+			width: 70px;
 			text-align: right;
 		}
 
@@ -33,6 +35,33 @@
 			margin-left: 20px;
 		}
 
+		.input-container .prompt{
+			margin-left: 10px;
+			display: none;
+		}
+
+		.input-container input:focus + .prompt, .input-container input:active + .prompt{
+			display: inline-block;
+		}
+
+		/*提示文字在输入框下方*/
+		.input-down-container{
+			font-size: 12px;
+			margin-left: 30px;
+			margin-top: 20px;
+		}
+
+
+		.input-down-container label{
+			display: inline-block;
+			width: 70px;
+			text-align: right;
+		}
+		
+		.input-down-container input{
+			height: 20px;
+			margin-left: 20px;
+		}
 	</style>
 </head>
 <body>
@@ -40,10 +69,12 @@
 		<div class="input-container">
 			<label>E-Mail:</label>
 			<input type="text" name="">
+			<span class="prompt">Please Input You E-Mail</span>
 		</div>
 		<div class="input-container">
 			<label>Password:</label>
 			<input type="text" name="">
+			<span class="prompt">Please Input You Password</span>
 		</div>
 	</div>
 
