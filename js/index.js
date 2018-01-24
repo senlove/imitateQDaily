@@ -4,7 +4,7 @@ $(function() {
 
     allCategoryOnclick();
 
-
+    getIndexData();
     loadSwiperItemData();
     loadItemData();
 
@@ -65,6 +65,10 @@ function allCategoryOnclick() {
     });
 }
 
+function getIndexData(){
+
+}
+
 
 function SwipeItemData() {
 
@@ -74,7 +78,7 @@ SwipeItemData.prototype = {
     imgSrc: "",
     desc: "",
     category: ""
-}
+};
 
 function createSwipeItemData() {
     var categorys = [
@@ -99,7 +103,6 @@ function createSwipeItemData() {
     ];
 
     var dataArrs = new Array();
-
     for (var i = 0; i < imgs.length; i++) {
         var categoryItem = categorys[i];
         var imgsItem = imgs[i];
@@ -118,6 +121,10 @@ function createSwipeItemData() {
 }
 
 function loadSwiperItemData() {
+
+
+
+
     var swipeItemDataArrs = createSwipeItemData();
 
     var $swiperWrapper = $('.swiper-wrapper');
@@ -149,11 +156,11 @@ function loadSwiperItemData() {
         // 								'<a class="swiper-slide-item-container-category" href="#">'+swiperItemData.category+'</a>'+
         // 								'<a class="swiper-slide-item-container-title" href="#">'+swiperItemData.desc+'</a>'+	
         // 							'</div>';
-        var swipeItemContainerTxt = `<div class="swiper-slide-item-container">\
-									<a href=""><img src="${swiperItemData.imgSrc}"></a>\
-									<a class="swiper-slide-item-container-category" href="#">${swiperItemData.category}</a>\
-									<a class="swiper-slide-item-container-title" href="#">${swiperItemData.desc}</a>\
-									</div>`;
+        // var swipeItemContainerTxt = `<div class="swiper-slide-item-container">\
+								// 	<a href=""><img src="${swiperItemData.imgSrc}"></a>\
+								// 	<a class="swiper-slide-item-container-category" href="#">${swiperItemData.category}</a>\
+								// 	<a class="swiper-slide-item-container-title" href="#">${swiperItemData.desc}</a>\
+								// 	</div>`;
 
         $swiperSlide.html(swipeItemContainerTxt);
         $swiperWrapper.append($swiperSlide);
@@ -170,7 +177,7 @@ function createDataFromNet() {
     $.get('http://localhost:8081/itemList', function(data) {
         var itemList = JSON.parse(data);
         var $itemContainer = $('.item-container');
-        var $ulTag = $('<ul class=ul-item-container></ul>')
+        var $ulTag = $('<ul class=ul-item-container></ul>');
         $itemContainer.append($ulTag);
         addItemToHtml(itemList);
     });
@@ -190,7 +197,7 @@ function addItemToHtml(dataList) {
         if (200 != itemData.type && lineCount <= 2 && tempBidDataArrs.length > 0) {
 
             var bigItemData = tempBidDataArrs.shift();
-            lineCount = lineCount + 2
+            lineCount = lineCount + 2;
             var $liTag = createLargeItem(itemData);
             $ulTag.append($liTag);
 
@@ -253,7 +260,7 @@ function createNormalItem(itemData){
 								'</div>'+
 							'</div>'+
 						'</a>'+
-					'</div>'
+					'</div>';
 
 	var itemStr = itemStartStr + itemOtherStr;
 	var $liTag = $('<li></li>');
@@ -285,7 +292,7 @@ function createLargeItem(itemData){
 								'</div>'+
 							'</div>'+
 						'</a>'+
-					'</div>'
+					'</div>';
 
 	var itemStr = itemStartStr + itemOtherStr;
 	var $liTag = $('<li></li>');
@@ -342,7 +349,7 @@ function scrollBottomListener() {
             }, 3000);
 
         }
-    })
+    });
 
 }
 
@@ -378,7 +385,7 @@ function scaleHeadHeight(tagWindow) {
             $('.head').stop(false, true).animate({ 'height': '60' }, 'slow', function() {
 
                 $('.head_right').width(520);
-                $('.head_center').css('margin-right', 520);;
+                $('.head_center').css('margin-right', 520);
                 $('.head_right_login').css('display', 'flex');
 
                 isDimishing = false;
@@ -392,7 +399,7 @@ function scaleHeadHeight(tagWindow) {
             isLarging = true;
 
             $('.head_right').width(350);
-            $('.head_center').css('margin-right', 350);;
+            $('.head_center').css('margin-right', 350);
             $('.head_right_login').hide();
 
             $('.head').stop(false, true).animate({ 'height': '80' }, 'slow', function() {
@@ -422,11 +429,11 @@ function showHideHeadLogin(tagWindow) {
     //隐藏、显示登录
     if (scrollTop > 0) { //滚出顶部
         $('.head_right').width(520);
-        $('.head_center').css('margin-right', 520);;
+        $('.head_center').css('margin-right', 520);
         $('.head_right_login').css('display', 'flex');
     } else {
         $('.head_right').width(350);
-        $('.head_center').css('margin-right', 350);;
+        $('.head_center').css('margin-right', 350);
         $('.head_right_login').hide();
     }
 }
