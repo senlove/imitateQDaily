@@ -132,7 +132,9 @@ app.get('/indexData', function(req, response){
 
 
 
-function createData(descArrays, imgArrays, arrsSize) {
+function createData(arrsSize, index) {
+
+	console.log(index);
 
 	var arrs = new Array();
 	for(var i=0; i<arrsSize; i++){
@@ -143,24 +145,32 @@ function createData(descArrays, imgArrays, arrsSize) {
 		var imgRandomSrc = imgArrays[random];
 		var descRandom = descArrays[random];
 
+		if('underfine' === index){
+			itemData.desc = descRandom;
+		} else {
+			itemData.desc = '第'+index+'页'+descRandom;
+		}
+
+		
+
 		itemData.imgSrc = imgRandomSrc;
-		itemData.desc = descRandom;
+
 		itemData.publishTime = 1509441932132;//毫秒做单位
 		itemData.commentCount = 10;
 		itemData.praiseCount = 15;
 		itemData.type = 100;//搞不清楚转换为json字符串的时候没有出现这个值，所以先默认赋值		
 
-		if(i === 5) {
-			itemData.type = 200;
-		}
+		// if(i === 5) {
+		// 	itemData.type = 200;
+		// }
 
-		if(7 === i){
-			itemData.type = 200;
-		}
+		// if(7 === i){
+		// 	itemData.type = 200;
+		// }
 
-		if(15 === i) {
-			itemData.type = 200;
-		}
+		// if(15 === i) {
+		// 	itemData.type = 200;
+		// }
 
 		arrs.push(itemData);
 	}
@@ -171,9 +181,9 @@ function createData(descArrays, imgArrays, arrsSize) {
 
 app.get('/itemList', function(req, response){
 
-	 console.log(req.url);
+	var index = req.query.index;
 
-	var dataList = createData(descArrays, imgArrays, 20);
+	var dataList = createData(10, index);
 	var jsonTxt = JSON.stringify(dataList);
 
 	response.writeHead(200, {
