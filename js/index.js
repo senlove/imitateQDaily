@@ -5,8 +5,6 @@ $(function() {
     allCategoryOnclick();
 
     getIndexData();
-    loadSwiperItemData();
-    loadItemData();
 
     scrollBottomListener();
 
@@ -19,6 +17,8 @@ function rnd(n, m) {
     var random = Math.floor(Math.random() * (m - n + 1) + n);
     return random;
 }
+
+var hostname = 'http://localhost:8081';
 
 // swiper 初始化
 function swiperInit() {
@@ -66,87 +66,39 @@ function allCategoryOnclick() {
 }
 
 function getIndexData(){
+    $.get(hostname + '/indexData', function(data) {
+        var indexData = JSON.parse(data);
+        var loopEntryList = indexData.loopEntrylist;
+        var itemDataList = indexData.itemDataList;
 
+        initSwiperItemData(loopEntryList);
+        initItemToHtml(itemDataList);
+    });
 }
 
 
-function SwipeItemData() {
-
-}
-
-SwipeItemData.prototype = {
-    imgSrc: "",
-    desc: "",
-    category: ""
-};
-
-function createSwipeItemData() {
-    var categorys = [
-        "科技",
-        "设计",
-        "时尚",
-        "智能"
-    ];
-
-    var imgs = [
-        "http://img.qdaily.com/article/banner/20171019073128xt3AnFg6G79azfP8.jpg?ima…!755x450r/gravity/Center/crop/755x450/quality/85/format/jpg/ignore-error/1",
-        "http://img.qdaily.com/article/banner/201710192050155gcIRKBTWwz2x6DU.jpg?ima…!755x450r/gravity/Center/crop/755x450/quality/85/format/jpg/ignore-error/1",
-        "http://img.qdaily.com/article/banner/20171020001900Ih8P7rxCS0kbMRyt.jpg?ima…!755x450r/gravity/Center/crop/755x450/quality/85/format/jpg/ignore-error/1",
-        "http://img.qdaily.com/article/banner/20171018194044zEc750JhSsKlAjMF.jpg?ima…!755x450r/gravity/Center/crop/755x450/quality/85/format/jpg/ignore-error/1"
-    ];
-
-    var descs = [
-        "搜狗终于要上市了，9 张图带你看那一代老派互联网科技公司的起落",
-        "员工身心健康也是企业竞争力，办公室设计在这一点上怎么配合？｜我们的办公室④",
-        "“全球时尚行业至少五分之一的消费者都聚集在中国”",
-        "双中子星并合，“宇宙最大烟火表演”激动人心，我们看待宇宙的方式要变了吗？",
-    ];
-
-    var dataArrs = new Array();
-    for (var i = 0; i < imgs.length; i++) {
-        var categoryItem = categorys[i];
-        var imgsItem = imgs[i];
-        var descItem = descs[i];
-
-        var swipeItemData = new SwipeItemData();
-        swipeItemData.category = categoryItem;
-        swipeItemData.imgSrc = imgsItem;
-        swipeItemData.desc = descItem;
-
-        dataArrs.push(swipeItemData);
-
-    }
-
-    return dataArrs;
-}
-
-function loadSwiperItemData() {
-
-
-
-
-    var swipeItemDataArrs = createSwipeItemData();
+function initSwiperItemData(loopEntryList) {
 
     var $swiperWrapper = $('.swiper-wrapper');
 
-    for (var i = 0; i < swipeItemDataArrs.length; i++) {
-        var swiperItemData = swipeItemDataArrs[i];
+    for (var i = 0; i < loopEntryList.length; i++) {
+        var loopEntry = loopEntryList[i];
 
         var firstDesc = "";
         var secondDesc = "";
-        if (swiperItemData.desc.length > 30) {
-            firstDesc = swiperItemData.desc.substring(0, 30);
-            secondDesc = swiperItemData.desc.substring(30);
+        if (loopEntry.desc.length > 30) {
+            firstDesc = loopEntry.desc.substring(0, 30);
+            secondDesc = loopEntry.desc.substring(30);
         } else {
-            secondDesc = swiperItemData.desc;
+            secondDesc = loopEntry.desc;
         }
 
         var $swiperSlide = $('<div class="swiper-slide"></div>');
 
 
         var swipeItemContainerTxt = '<div class="swiper-slide-item-container">' +
-            '<a href=""><img src="' + swiperItemData.imgSrc + '"></a>' +
-            '<a class="swiper-slide-item-container-category" href="#">' + swiperItemData.category + '</a>' +
+            '<a href=""><img src="' + loopEntry.imgUrl + '"></a>' +
+            '<a class="swiper-slide-item-container-category" href="#">' + loopEntry.category + '</a>' +
             '<a class="swiper-slide-item-container-title-first" href="#">' + firstDesc + '</a>' +
             '<a class="swiper-slide-item-container-title-second" href="#">' + secondDesc + '</a>' +
             '</div>';
@@ -168,19 +120,11 @@ function loadSwiperItemData() {
 }
 
 
-function loadItemData() {
-    createDataFromNet();
-}
-
-
-function createDataFromNet() {
-    $.get('http://localhost:8081/itemList', function(data) {
-        var itemList = JSON.parse(data);
-        var $itemContainer = $('.item-container');
-        var $ulTag = $('<ul class=ul-item-container></ul>');
-        $itemContainer.append($ulTag);
-        addItemToHtml(itemList);
-    });
+function initItemToHtml(itemDataList){
+    var $itemContainer = $('.item-container');
+    var $ulTag = $('<ul class=ul-item-container></ul>');
+    $itemContainer.append($ulTag);
+    addItemToHtml(itemDataList);
 }
 
 

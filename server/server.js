@@ -45,7 +45,7 @@ LoopEntry.prototype = {
 	imgUrl:"",
 	category:"",
 	desc:""
-}
+};
 
 function ItemData(){
 
@@ -59,7 +59,7 @@ ItemData.prototype = {
 	commentCount:0,
 	praiseCount:0,
 	type:100 //100 200 300
-}
+};
 
 // 首页的数据
 //五个轮播图的数据、4个item数据、一个大item的数据 包括投票数据、一个诗意的数据
@@ -70,7 +70,7 @@ function createIndexData(){
 	var loopEntrylist = new Array();
 
 	for(var i=0; i<5; i++){
-		var loopEntry = new LoopEntry()
+		var loopEntry = new LoopEntry();
 		loopEntry.imgUrl = imgArrays[rnd(0, 5)];
 		loopEntry.category = categoryArrs[rnd(0, 5)];
 		loopEntry.desc = descArrays[rnd(0, 5)];
@@ -145,7 +145,7 @@ function createData(arrsSize, index) {
 		var imgRandomSrc = imgArrays[random];
 		var descRandom = descArrays[random];
 
-		if('underfine' === index){
+		if(undefined === index){
 			itemData.desc = descRandom;
 		} else {
 			itemData.desc = '第'+index+'页'+descRandom;
