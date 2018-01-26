@@ -70,9 +70,11 @@ function getIndexData(){
         var indexData = JSON.parse(data);
         var loopEntryList = indexData.loopEntrylist;
         var itemDataList = indexData.itemDataList;
+        var fxiedEntry = indexData.fxiedEntry;
 
         initSwiperItemData(loopEntryList);
         initItemToHtml(itemDataList);
+        initFixedItem(fxiedEntry);
     });
 }
 
@@ -125,6 +127,28 @@ function initItemToHtml(itemDataList){
     var $ulTag = $('<ul class=ul-item-container></ul>');
     $itemContainer.append($ulTag);
     addItemToHtml(itemDataList);
+}
+
+
+function initFixedItem(fxiedEntry){
+    var fixedItemTag = '<div class="item-fixed">'+
+                            '<div class="fixed-vote">'+
+                                '<img src="'+ fxiedEntry.imgUrl +'" class="fixed-vote-bg">'+
+                                '<img src="imgs/ic_vote.png" class="fixed-vote-tag">'+
+                                '<div class="vote-bottom">'+
+                                    '<p>'+ fxiedEntry.title +'</p>'+
+                                    '<p>'+ fxiedEntry.desc +'</p>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="fixed-poetry">'+
+                                '<img src="'+ fxiedEntry.supportImgUrl +'">'+
+                            '</div>'+
+                        '</div>';
+
+    var $liTag = $('<li></li>');
+    $liTag.html(fixedItemTag);
+    var $ulTag = $('.ul-item-container');
+    $ulTag.append($liTag);
 }
 
 
